@@ -1,10 +1,9 @@
-﻿using Breda_Tour.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Breda_Tours.SettingsScreen;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -15,28 +14,29 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Breda_Tour
+namespace Breda_Tour.SplashScreen
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class SplashPage : Page
     {
-        private static Frame f;
+        //get current frame
+        Frame f = (Frame)Window.Current.Content;
 
-        public MainPage()
+        public SplashPage()
         {
-            new RouteDatabase();
             this.InitializeComponent();
-            f = this.rootFrame;
-            f.Navigate(typeof(SettingsPage));
         }
 
-        public static Frame RootFrame {
-            get { return f; }
+        /// <author>Jannick van Ballegooijen</author>
+        /// <desc>Temporary method to navigate to the main screen</desc>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            f.Navigate(typeof(MainPage));
         }
-
+        
     }
 }
