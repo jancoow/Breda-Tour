@@ -28,7 +28,6 @@ namespace Breda_Tour
 
         public MainPage()
         {
-            new RouteDatabase();
             this.InitializeComponent();
             f = this.rootFrame;
             f.Navigate(typeof(SettingsPage));

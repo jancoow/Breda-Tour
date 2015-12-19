@@ -29,10 +29,6 @@ namespace Breda_Tour.Data
                 foreach (JToken route in JsonList){
                    Routes.Add(JsonConvert.DeserializeObject<Route>(route.ToString()));
                 }
-                foreach (Waypoint p in Routes[0].Waypoints)
-                {
-                    System.Diagnostics.Debug.WriteLine(p.Description);
-                }
         });
         }
     }
