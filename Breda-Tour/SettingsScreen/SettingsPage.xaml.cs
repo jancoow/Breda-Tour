@@ -41,7 +41,6 @@ namespace Breda_Tours.SettingsScreen
             this.InitializeComponent();
 
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
-
             HelpItems = new ObservableCollection<HelpItem>();
             for (int i = 0; i < 10; i++)
                 HelpItems.Add(new HelpItem

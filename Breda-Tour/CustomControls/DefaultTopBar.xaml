@@ -14,7 +14,7 @@
                     FontWeight="Bold"
                     FontSize="18"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
-                   Text="{Binding MySymbol}"
+                    Text="{Binding MySymbol}"
                     Margin="10,0,0,0"
                    >
         </TextBlock>

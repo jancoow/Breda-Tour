@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <RadioButton 
-            Name="RouteSelectRadioButton"
+            x:Name="RouteSelectRadioButton"
             HorizontalAlignment="Stretch"
             Style="{StaticResource MainNavigationButtonStyle}"
             Content="{StaticResource SymbolRouteSelect}"
@@ -22,7 +22,7 @@
             />
         <RadioButton 
              HorizontalAlignment="Stretch"
-            Name="MapRadioButton"
+            x:Name="MapRadioButton"
             Style="{StaticResource MainNavigationButtonStyle}"
             Content="{StaticResource SymbolGlobe}" 
             Grid.Column="1"
@@ -30,7 +30,7 @@
             Height="50"/>
         <RadioButton 
             HorizontalAlignment="Stretch"
-            Name="SettingsRadioButton"
+            x:Name="SettingsRadioButton"
             Style="{StaticResource MainNavigationButtonStyle}"
             Content="{StaticResource SymbolSettings}"
             Grid.Column="2"
