@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Breda_Tour.HelpScreen.HelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Breda_Tour"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Breda_Tour.CustomControls"
+    mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <c:DefaultTopBar MySymbol="{StaticResource SymbolClose}" Header="HelpItem" />
+        <StackPanel Background="White" Grid.Row="1">
+
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="White" FontSize="18" Text="Back" Margin="20,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Foreground="White" FontSize="18" Text="Page 1 of 4" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1"/>
+            <TextBlock Foreground="White" FontSize="18" Text="Next" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
+        </Grid>
+    </Grid>
+</Page>

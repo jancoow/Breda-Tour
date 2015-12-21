@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="Breda_Tour.CustomControls.DefaultTopBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Breda_Tour.CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel Background="#22000000" Height="40">
+        <TextBlock x:Name="TopBarIcon"
+                    Foreground="White"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontWeight="Bold"
+                    FontSize="18"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                   Text="{Binding MySymbol}"
+                    Margin="10,0,0,0"
+                   >
+        </TextBlock>
+        <TextBlock x:Name="TopBarHeaderText"
+                   Foreground="White"
+                   FontSize="18"
+                   RelativePanel.RightOf="TopBarIcon"
+                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                   Text="{Binding Header}"
+                   Margin="10,0,0,1">
+        </TextBlock>
+    </RelativePanel>
+</UserControl>

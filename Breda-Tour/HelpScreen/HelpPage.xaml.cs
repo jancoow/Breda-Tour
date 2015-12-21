@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Breda_Tours.SettingsScreen;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,27 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Breda_Tour
+namespace Breda_Tour.HelpScreen
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class HelpPage : Page
     {
-        private static Frame f;
-
-        public MainPage()
+        public HelpPage()
         {
             this.InitializeComponent();
-            f = this.rootFrame;
-            f.Navigate(typeof(SettingsPage));
         }
-
-        public static Frame RootFrame {
-            get { return f; }
-        }
-
     }
 }
