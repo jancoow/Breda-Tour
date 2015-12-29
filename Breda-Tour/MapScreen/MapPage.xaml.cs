@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Geolocation;
+using Windows.Services.Maps;
 using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Core;
@@ -34,6 +35,7 @@ namespace Breda_Tour.MapScreen
         private MapIcon marker;
         private Geopoint point;
         private Gps gps;
+        private Route route;
 
         public MapPage()
         {
@@ -42,6 +44,8 @@ namespace Breda_Tour.MapScreen
             marker.NormalizedAnchorPoint = new Point(0.5, 0.5);
             gps = new Gps(this);
             gps.Start();
+            route = new Route("TestRoute","Test Description");
+            route.CreateTestWaypoints();
             this.InitializeComponent();
         }
 
@@ -63,6 +67,40 @@ namespace Breda_Tour.MapScreen
                marker.Location = point;
            });
             await Map.TrySetViewAsync(point, 15);
+            ShowWaypoints(route);
+            ShowRoute(route);
+        }
+
+        public async void ShowRoute(Route route)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            {
+                List<Geopoint> geopoints = new List<Geopoint>();
+            foreach(WayPoint wayPoint in route.WayPoints)
+            {
+                geopoints.Add(wayPoint.Position);
+            }
+            MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
+            if (finder.Status == MapRouteFinderStatus.Success)
+            {
+                MapRouteView routeView = new MapRouteView(finder.Route);
+                routeView.RouteColor = Colors.Firebrick;
+                routeView.OutlineColor = Colors.Black;
+                Map.Routes.Add(routeView);
+            }
+            });
+        }
+
+        public async void ShowWaypoints(Route route)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                foreach (var waypoint in route.WayPoints)
+                {
+                    MapIcon wp = new MapIcon() {Location = waypoint.Position};
+                    Map.MapElements.Add(wp);
+                }
+            });
         }
     }
 }

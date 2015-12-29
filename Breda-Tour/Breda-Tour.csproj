@@ -106,6 +106,8 @@
       <DependentUpon>DefaultTopBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data_\Gps.cs" />
+    <Compile Include="Data_\Route.cs" />
+    <Compile Include="Data_\RouteDatabase.cs" />
     <Compile Include="Data_\WayPoint.cs" />
     <Compile Include="HelpScreen\HelpItem.cs" />
     <Compile Include="HelpScreen\HelpPage.xaml.cs">
