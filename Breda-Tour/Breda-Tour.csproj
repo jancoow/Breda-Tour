@@ -94,11 +94,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <Content Include="Storage\Routes\routes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Route.cs" />
+    <Compile Include="Data\RouteDatabase.cs" />
+    <Compile Include="Data\Waypoint.cs" />
     <Compile Include="CustomControls\DefaultPivotControl.xaml.cs">
       <DependentUpon>DefaultPivotControl.xaml</DependentUpon>
     </Compile>
@@ -195,7 +201,10 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="View\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
