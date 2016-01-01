@@ -107,7 +107,7 @@ namespace Breda_Tour.MapScreen
                 for (int x = 0; x < route.Waypoints.Count; x++)
                 {
                     Waypoint wayp = route.Waypoints.ElementAt(x);
-                    MapIcon wp = new MapIcon { Location = wayp.Position, Title = x + 1.ToString() };
+                    MapIcon wp = new MapIcon { Location = wayp.Position, Title = (x + 1).ToString() };
                     Map.MapElements.Add(wp);
                 }
                 //foreach (var waypoint in route.WayPoints)
