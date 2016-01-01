@@ -21,7 +21,9 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Automation;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Shapes;
+using Breda_Tour.CustomControls;
 using Breda_Tour.Data_;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,12 +49,16 @@ namespace Breda_Tour.MapScreen
             route = new Route("TestRoute","Test Description");
             route.CreateTestWaypoints();
             this.InitializeComponent();
+            DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
+            Debug.Write("New Map generated");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+           SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
+
+
 
         public async void ShowLocaton(Geopoint point)
         {
@@ -97,10 +103,25 @@ namespace Breda_Tour.MapScreen
             {
                 foreach (var waypoint in route.WayPoints)
                 {
-                    MapIcon wp = new MapIcon() {Location = waypoint.Position};
+                    MapIcon wp = new MapIcon() {Location = waypoint.Position, Title = waypoint.number.ToString()};
                     Map.MapElements.Add(wp);
                 }
             });
+        }
+
+        private void Map_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            MapIcon Icon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+            foreach (var waypoint in route.WayPoints)
+            {
+                if (Icon.Title != "")
+                {
+                    if (waypoint.number == int.Parse(Icon.Title))
+                    {
+                        MainPage.RootFrame.Navigate(typeof(WpDetailPage), waypoint);
+                    }
+                }
+            }
         }
     }
 }
