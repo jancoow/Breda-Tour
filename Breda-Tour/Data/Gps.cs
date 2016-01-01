@@ -6,7 +6,7 @@ using Windows.System;
 using Windows.UI.Xaml;
 using Breda_Tour.MapScreen;
 
-namespace Breda_Tour.Data_
+namespace Breda_Tour.Data
 {
     public class Gps
     {

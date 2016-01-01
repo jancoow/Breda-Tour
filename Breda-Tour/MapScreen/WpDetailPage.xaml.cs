@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Breda_Tour.Data_;
+using Breda_Tour.Data;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +24,7 @@ namespace Breda_Tour.MapScreen
     /// </summary>
     public sealed partial class WpDetailPage : Page
     {
-        private WayPoint wp;
+        private Waypoint wp;
 
         public WpDetailPage()
         {
@@ -33,7 +33,7 @@ namespace Breda_Tour.MapScreen
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            wp = e.Parameter as WayPoint;
+            wp = e.Parameter as Waypoint;
             this.DataContext = wp;
 
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;

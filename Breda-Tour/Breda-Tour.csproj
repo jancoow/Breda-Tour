@@ -102,6 +102,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Picture.cs" />
     <Compile Include="Data\Route.cs" />
     <Compile Include="Data\RouteDatabase.cs" />
     <Compile Include="Data\Waypoint.cs" />
@@ -111,11 +112,7 @@
     <Compile Include="CustomControls\DefaultTopBar.xaml.cs">
       <DependentUpon>DefaultTopBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data_\Gps.cs" />
-    <Compile Include="Data_\Image.cs" />
-    <Compile Include="Data_\Route.cs" />
-    <Compile Include="Data_\RouteDatabase.cs" />
-    <Compile Include="Data_\WayPoint.cs" />
+    <Compile Include="Data\Gps.cs" />
     <Compile Include="HelpScreen\HelpItem.cs" />
     <Compile Include="HelpScreen\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>

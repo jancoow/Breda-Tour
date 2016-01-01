@@ -1,8 +1,8 @@
 ﻿using Windows.UI.ViewManagement;
 
-namespace Breda_Tour.Data_
+namespace Breda_Tour.Data
 {
-    public class Image
+    public class Picture
     {
         private string _source;
 
@@ -16,7 +16,7 @@ namespace Breda_Tour.Data_
             get { return ApplicationView.GetForCurrentView().VisibleBounds.Width; }
         }
 
-        public Image(string source)
+        public Picture(string source)
         {
             _source = source;
         }

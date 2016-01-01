@@ -9,7 +9,7 @@ namespace Breda_Tour.Data
 {
     class RouteDatabase
     {
-        private List<Route> Routes;
+        public List<Route> Routes;
         
         public RouteDatabase()
         {

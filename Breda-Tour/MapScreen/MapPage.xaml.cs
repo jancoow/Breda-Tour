@@ -22,8 +22,8 @@ using Windows.UI.Xaml.Automation;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Shapes;
 using Breda_Tour.CustomControls;
-using Breda_Tour.Data_;
 using System.Diagnostics;
+using Breda_Tour.Data;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,15 +47,16 @@ namespace Breda_Tour.MapScreen
             marker.NormalizedAnchorPoint = new Point(0.5, 0.5);
             gps = new Gps(this);
             gps.Start();
-            route = new Route("TestRoute","Test Description");
-            route.CreateTestWaypoints();
+            RouteDatabase routeDB = new RouteDatabase();
+            Debug.Write(routeDB.Routes.Count);
+            //route = routeDB.Routes.ElementAt(1);
             this.InitializeComponent();
             Debug.Write("New Map generated");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-           SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
         }
 
@@ -83,18 +84,18 @@ namespace Breda_Tour.MapScreen
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
                 List<Geopoint> geopoints = new List<Geopoint>();
-            foreach(WayPoint wayPoint in route.WayPoints)
-            {
-                geopoints.Add(wayPoint.Position);
-            }
-            MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
-            if (finder.Status == MapRouteFinderStatus.Success)
-            {
-                MapRouteView routeView = new MapRouteView(finder.Route);
-                routeView.RouteColor = Colors.Firebrick;
-                routeView.OutlineColor = Colors.Black;
-                Map.Routes.Add(routeView);
-            }
+                foreach (Waypoint wayPoint in route.Waypoints)
+                {
+                    geopoints.Add(wayPoint.Position);
+                }
+                MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
+                if (finder.Status == MapRouteFinderStatus.Success)
+                {
+                    MapRouteView routeView = new MapRouteView(finder.Route);
+                    routeView.RouteColor = Colors.Firebrick;
+                    routeView.OutlineColor = Colors.Black;
+                    Map.Routes.Add(routeView);
+                }
             });
         }
 
@@ -102,27 +103,43 @@ namespace Breda_Tour.MapScreen
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                foreach (var waypoint in route.WayPoints)
+                for (int x = 0; x < route.Waypoints.Count; x++)
                 {
-                    MapIcon wp = new MapIcon() {Location = waypoint.Position, Title = waypoint.number.ToString()};
+                    Waypoint wayp = route.Waypoints.ElementAt(x);
+                    MapIcon wp = new MapIcon { Location = wayp.Position, Title = x + 1.ToString() };
                     Map.MapElements.Add(wp);
                 }
+                //foreach (var waypoint in route.WayPoints)
+                //{
+                //    MapIcon wp = new MapIcon() {Location = waypoint.Position, Title = waypoint.number.ToString()};
+                //    Map.MapElements.Add(wp);
+                //}
             });
         }
 
         private void Map_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
             MapIcon Icon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
-            foreach (var waypoint in route.WayPoints)
+            for (int x = 0; x < route.Waypoints.Count; x++)
             {
                 if (Icon.Title != "")
                 {
-                    if (waypoint.number == int.Parse(Icon.Title))
+                    if (x + 1 == int.Parse(Icon.Title))
                     {
-                        MainPage.RootFrame.Navigate(typeof(WpDetailPage), waypoint);
+                        MainPage.RootFrame.Navigate(typeof (WpDetailPage), route.Waypoints.ElementAt(x));
                     }
                 }
             }
+            //foreach (var waypoint in route.WayPoints)
+            //{
+            //    if (Icon.Title != "")
+            //    {
+            //        if (waypoint.number == int.Parse(Icon.Title))
+            //        {
+            //            MainPage.RootFrame.Navigate(typeof(WpDetailPage), waypoint);
+            //        }
+            //    }
+            //}
         }
     }
 }
