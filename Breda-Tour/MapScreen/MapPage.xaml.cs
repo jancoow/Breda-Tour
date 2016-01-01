@@ -41,6 +41,7 @@ namespace Breda_Tour.MapScreen
 
         public MapPage()
         {
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
             marker = new MapIcon();
             marker.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Marker.png"));
             marker.NormalizedAnchorPoint = new Point(0.5, 0.5);
@@ -49,13 +50,13 @@ namespace Breda_Tour.MapScreen
             route = new Route("TestRoute","Test Description");
             route.CreateTestWaypoints();
             this.InitializeComponent();
-            DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
             Debug.Write("New Map generated");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
         }
 
 
