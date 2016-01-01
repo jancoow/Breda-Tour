@@ -25,10 +25,13 @@ namespace Breda_Tour.Data
             this.Title = Title;
             this.Description = Description;
             this.Pictures = new List<Picture>();
-            foreach (var imageSource in pictures)
+            if (pictures != null)
             {
-                string newSource = "ms-appx:///Assets/" + imageSource;
-                Pictures.Add(new Picture(newSource));
+                foreach (var imageSource in pictures)
+                {
+                    string newSource = "ms-appx:///Storage/Images/" + imageSource;
+                    Pictures.Add(new Picture(newSource));
+                }
             }
         }
     }

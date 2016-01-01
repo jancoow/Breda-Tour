@@ -94,6 +94,32 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <Content Include="Storage\Images\1.jpg" />
+    <Content Include="Storage\Images\10.jpg" />
+    <Content Include="Storage\Images\11.jpg" />
+    <Content Include="Storage\Images\12.jpg" />
+    <Content Include="Storage\Images\13.jpg" />
+    <Content Include="Storage\Images\14.jpg" />
+    <Content Include="Storage\Images\15.jpg" />
+    <Content Include="Storage\Images\16.jpg" />
+    <Content Include="Storage\Images\17.jpg" />
+    <Content Include="Storage\Images\18.jpg" />
+    <Content Include="Storage\Images\19.jpg" />
+    <Content Include="Storage\Images\2.jpg" />
+    <Content Include="Storage\Images\20.jpg" />
+    <Content Include="Storage\Images\21.jpg" />
+    <Content Include="Storage\Images\22.jpg" />
+    <Content Include="Storage\Images\23.jpg" />
+    <Content Include="Storage\Images\24.jpg" />
+    <Content Include="Storage\Images\25.jpg" />
+    <Content Include="Storage\Images\26.jpg" />
+    <Content Include="Storage\Images\3.jpg" />
+    <Content Include="Storage\Images\4.jpg" />
+    <Content Include="Storage\Images\5.jpg" />
+    <Content Include="Storage\Images\6.jpg" />
+    <Content Include="Storage\Images\7.jpg" />
+    <Content Include="Storage\Images\8.jpg" />
+    <Content Include="Storage\Images\9.jpg" />
     <Content Include="Storage\Routes\routes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -144,7 +170,6 @@
     <None Include="Breda-Tour_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\1.jpg" />
     <Content Include="Assets\Ags_Logo.png" />
     <Content Include="Assets\Marker.png" />
     <Content Include="Properties\Default.rd.xml" />

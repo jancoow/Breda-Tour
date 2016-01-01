@@ -48,8 +48,9 @@ namespace Breda_Tour.MapScreen
             gps = new Gps(this);
             gps.Start();
             RouteDatabase routeDB = new RouteDatabase();
-            Debug.Write(routeDB.Routes.Count);
-            //route = routeDB.Routes.ElementAt(1);
+            routeDB.readRoutes();
+            Debug.Write("Groote van de routes is:" + routeDB.Routes.Count);
+            route = routeDB.Routes.ElementAt(0);
             this.InitializeComponent();
             Debug.Write("New Map generated");
         }
@@ -74,7 +75,7 @@ namespace Breda_Tour.MapScreen
                }
                marker.Location = point;
            });
-            await Map.TrySetViewAsync(point, 15);
+            await Map.TrySetViewAsync(point, 17);
             ShowWaypoints(route);
             ShowRoute(route);
         }
