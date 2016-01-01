@@ -18,10 +18,14 @@
         </Grid.RowDefinitions>
 
         <c:DefaultTopBar x:Name="NameBar" Grid.Row="0" Header="{x:Bind wp.Title}"/>
-        <ListView Grid.Row="1" ItemsSource="{x:Bind wp.Pictures}">
+        <ListView Grid.Row="1" ItemsSource="{x:Bind wp.Pictures}"
+                  ScrollViewer.HorizontalScrollMode="Enabled"
+                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                    ScrollViewer.IsHorizontalRailEnabled="True"
+                    ScrollViewer.VerticalScrollMode="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Horizontal" Padding="0"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate >
@@ -36,9 +40,9 @@
             <TextBlock Text="Beschrijving" FontSize="20" Margin="15,15,0,15" />
         </RelativePanel>
         <RelativePanel Grid.Row="3">
-           <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
+            <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
                 <TextBlock HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" TextWrapping="Wrap" Text="{x:Bind wp.Description}"/>
-           </ScrollViewer>
+            </ScrollViewer>
         </RelativePanel>
     </Grid>
 </Page>
