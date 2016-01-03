@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Breda_Tour.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,10 +23,19 @@ namespace Breda_Tour.RouteSelectScreen
     /// </summary>
     public sealed partial class RouteSelectPage : Page
     {
+        RouteDatabase AllRoutes;
         public RouteSelectPage()
         {
+            AllRoutes = new RouteDatabase();
             this.InitializeComponent();
             DefaultPivot.SetCheckedButton(CustomControls.DefaultPivotControl.Tab.RouteSelected);
+        }
+
+        private void Routes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Route route = e.ClickedItem as Route;
+            Frame frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(RouteExample), route);
         }
     }
 }

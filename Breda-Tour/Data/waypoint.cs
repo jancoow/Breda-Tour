@@ -22,7 +22,7 @@ namespace Breda_Tour.Data
             this.Photos = new List<Image>();
             if (pictures != null)
             {
-                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                /*Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     foreach (string source in pictures)
                     {
@@ -32,7 +32,7 @@ namespace Breda_Tour.Data
                             Name = source
                         });
                     }
-                });
+                });*/
             }
         }
     }

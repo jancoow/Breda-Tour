@@ -6,7 +6,10 @@
     xmlns:c="using:Breda_Tour.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Breda_Tour.Data"
+    xmlns:con="using:Breda_Tour.RouteSelectScreen"
     mc:Ignorable="d">
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,6 +19,26 @@
         </Grid.RowDefinitions>
         <c:DefaultTopBar Header="Route Selecteren"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
-        
+        <RelativePanel Grid.Row="2" Margin="0,5">
+            <RelativePanel.Resources>
+                <con:Converter x:Key="BoolToVis"/>
+            </RelativePanel.Resources>
+            <ListView x:Name="Routes" ItemsSource="{x:Bind AllRoutes.Routes}" IsItemClickEnabled="True" ItemClick="Routes_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Route">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="340">
+                                <TextBlock Text="{Binding Title}" FontSize="24"/>
+                                <ToggleButton x:Name="toggleButton" Content="" IsChecked="False"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="340" Visibility="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToVis}}">
+                                <TextBlock Text="Breda" FontSize="16"/>      
+                            </StackPanel>
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>
