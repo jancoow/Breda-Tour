@@ -15,6 +15,6 @@
 
         <TextBlock Text="Tijdsduur: " FontSize="16" Margin="17,80,0,-25"/>
         <TextBlock Text="Loopafstand: " FontSize="16" Margin="17,95,0,-25"/>
-        <TextBlock Text="{Binding Waypoints}" FontSize="16" Margin="17,110,0,-25"/>
+        <TextBlock Text="{x:Bind Waypoints}" FontSize="16" Margin="17,110,0,-25"/>
     </Grid>
 </Page>

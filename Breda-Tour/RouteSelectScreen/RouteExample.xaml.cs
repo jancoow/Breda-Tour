@@ -36,7 +36,6 @@ namespace Breda_Tour.RouteSelectScreen
         {
             route = e.Parameter as Route;
             Waypoints = "Aantal waypoints: " + 0;
-            this.DataContext = route;
             if (route.Waypoints.Count != 0){
                 Waypoints = "Aantal waypoints: " +route.Waypoints.Count;
             }
