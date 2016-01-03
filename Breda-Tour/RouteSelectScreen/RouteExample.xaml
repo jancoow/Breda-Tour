@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="Breda_Tour.RouteSelectScreen.RouteExample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Breda_Tour.RouteSelectScreen"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Breda_Tour.CustomControls"
+    xmlns:data="using:Breda_Tour.Data"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <c:DefaultTopBar Header="Routevoorbeeld" Margin="0,-300,0,300"/>
+        <TextBlock Text="Routeinformatie" FontSize="16" Margin="17,45,0,-23"/>
+
+        <TextBlock Text="Tijdsduur: " FontSize="16" Margin="17,80,0,-25"/>
+        <TextBlock Text="Loopafstand: " FontSize="16" Margin="17,95,0,-25"/>
+        <TextBlock Text="{Binding Waypoints}" FontSize="16" Margin="17,110,0,-25"/>
+    </Grid>
+</Page>
