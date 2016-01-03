@@ -20,9 +20,8 @@
         <c:DefaultTopBar x:Name="NameBar" Grid.Row="0" Header="{x:Bind wp.Title}"/>
         <ListView Grid.Row="1" ItemsSource="{x:Bind wp.Pictures}"
                   ScrollViewer.HorizontalScrollMode="Enabled"
-                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
                     ScrollViewer.IsHorizontalRailEnabled="True"
-                    ScrollViewer.VerticalScrollMode="Disabled">
+                    ScrollViewer.VerticalScrollMode="Disabled" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" Padding="0"/>
@@ -30,8 +29,13 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="data:Picture">
-                    <ListViewItem>
-                        <Image Source="{x:Bind Source}" Height="{x:Bind Width}" Width="{x:Bind Width}" Stretch="UniformToFill" />
+                     <ListViewItem Padding="0">
+                        <Canvas Height="140"  Width="140" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Canvas.Background>
+                                <ImageBrush />
+                            </Canvas.Background>
+                            <Image Source="{x:Bind Source}"  Width="140" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Canvas>
                     </ListViewItem>
                 </DataTemplate>
             </ListView.ItemTemplate>
