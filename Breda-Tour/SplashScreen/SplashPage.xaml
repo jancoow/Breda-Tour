@@ -45,11 +45,11 @@
             <Button Style="{StaticResource SplashScreenLanguageButtonStyle}"
                     Content="{StaticResource AppLanguageDutch}"
                     Margin="0,15,0,0"
-                    Click="Button_Click"/>
+                    Click="Button_Dutch_Click"/>
             <Button Style="{StaticResource SplashScreenLanguageButtonStyle}"
                     Content="{StaticResource AppLanguageEnglish}"
                     Margin="0,10,0,0"
-                    Click="Button_Click"/>
+                    Click="Button_English_Click"/>
         </StackPanel>
 
         <!--Language selection-->

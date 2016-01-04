@@ -21,7 +21,7 @@
                 <TextBlock Style="{StaticResource SettingsHeaderStyle}" Foreground="White" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
                 <ListViewItem>
                     <StackPanel Margin="8,0,0,0">
-                        <TextBlock FontSize="18" Text="Taal instellen" Foreground="White"></TextBlock>
+                        <TextBlock Name="txtSetupLanguage" x:Uid="SettingsPagetxtSetupLanguage" FontSize="18" Text="Taal instellen" Foreground="White"></TextBlock>
                         <TextBlock Margin="0,-1,0,0" FontSize="12" Foreground="White" Text="{StaticResource AppLanguageDutch}"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
