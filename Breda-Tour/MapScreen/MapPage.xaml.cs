@@ -53,8 +53,6 @@ namespace Breda_Tour.MapScreen
             route = routeDB.Routes.ElementAt(0);
             this.InitializeComponent();
             Debug.Write("New Map generated");
-            ShowWaypoints(route);
-            ShowRoute(route);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -62,6 +60,8 @@ namespace Breda_Tour.MapScreen
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
         }
+
+
 
         public async void ShowLocaton(Geopoint point)
         {
@@ -76,11 +76,13 @@ namespace Breda_Tour.MapScreen
                marker.Location = point;
            });
             await Map.TrySetViewAsync(point, 17);
+            ShowWaypoints(route);
+            ShowRoute(route);
         }
 
         public async void ShowRoute(Route route)
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.High, async () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
                 List<Geopoint> geopoints = new List<Geopoint>();
                 foreach (Waypoint wayPoint in route.Waypoints)
@@ -100,7 +102,7 @@ namespace Breda_Tour.MapScreen
 
         public async void ShowWaypoints(Route route)
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 for (int x = 0; x < route.Waypoints.Count; x++)
                 {

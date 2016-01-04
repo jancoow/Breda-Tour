@@ -24,18 +24,13 @@
                     ScrollViewer.VerticalScrollMode="Disabled" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" Padding="0"/>
+                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="data:Picture">
-                     <ListViewItem Padding="0">
-                        <Canvas Height="170"  Width="170" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Canvas.Background>
-                                <ImageBrush />
-                            </Canvas.Background>
-                            <Image Tapped="Image_PointerPressed" Source="{x:Bind Source}"  Width="170" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Canvas>
+                    <ListViewItem>
+                        <Image Source="{x:Bind Source}" Height="{x:Bind Width}" Width="{x:Bind Width}" Stretch="UniformToFill" />
                     </ListViewItem>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -44,9 +39,9 @@
             <TextBlock Text="Beschrijving" FontSize="20" Margin="15,15,0,15" />
         </RelativePanel>
         <RelativePanel Grid.Row="3">
-            <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
+           <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
                 <TextBlock HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" TextWrapping="Wrap" Text="{x:Bind wp.Description}"/>
-            </ScrollViewer>
+           </ScrollViewer>
         </RelativePanel>
     </Grid>
 </Page>
