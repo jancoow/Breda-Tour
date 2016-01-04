@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,10 +26,12 @@ namespace Breda_Tour.MapScreen
     public sealed partial class WpDetailPage : Page
     {
         private Waypoint wp;
+        public double Width { get; }
 
         public WpDetailPage()
         {
             this.InitializeComponent();
+            Width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -44,7 +47,7 @@ namespace Breda_Tour.MapScreen
         {
             e.Handled = true;
             SystemNavigationManager.GetForCurrentView().BackRequested -= MainPage_BackRequested;
-            MainPage.RootFrame.Navigate(typeof (MapPage));
+            MainPage.RootFrame.Navigate(typeof(MapPage));
         }
 
         private void Image_PointerPressed(object sender, TappedRoutedEventArgs e)

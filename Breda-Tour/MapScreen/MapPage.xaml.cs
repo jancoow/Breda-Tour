@@ -47,21 +47,18 @@ namespace Breda_Tour.MapScreen
             marker.NormalizedAnchorPoint = new Point(0.5, 0.5);
             gps = new Gps(this);
             gps.Start();
-            RouteDatabase routeDB = new RouteDatabase();
-            routeDB.readRoutes();
-            Debug.Write("Groote van de routes is:" + routeDB.Routes.Count);
-            route = routeDB.Routes.ElementAt(0);
+            RouteDatabase db = new RouteDatabase();
+            db.readRoutes();
+            route = db.Routes.ElementAt(0);
             this.InitializeComponent();
-            Debug.Write("New Map generated");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
+            //route = e.Parameter as Route;
         }
-
-
 
         public async void ShowLocaton(Geopoint point)
         {

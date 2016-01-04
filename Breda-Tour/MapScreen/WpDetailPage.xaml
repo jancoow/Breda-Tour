@@ -9,7 +9,7 @@
     xmlns:data="using:Breda_Tour.Data"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,21 +27,27 @@
                     <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="data:Picture">
-                    <ListViewItem>
-                        <Image Source="{x:Bind Source}" Height="{x:Bind Width}" Width="{x:Bind Width}" Stretch="UniformToFill" />
-                    </ListViewItem>
+                    <Image Source="{x:Bind Source}" Height="{x:Bind Width}" Width="{x:Bind Width}" Stretch="UniformToFill" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
         <RelativePanel Grid.Row="2">
             <TextBlock Text="Beschrijving" FontSize="20" Margin="15,15,0,15" />
+            <Line X1="0" X2="{x:Bind Width, Mode=OneTime}" Y1="50" Y2="50" Stroke="Gray" StrokeThickness="2" />
         </RelativePanel>
         <RelativePanel Grid.Row="3">
-           <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
+            <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
                 <TextBlock HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" TextWrapping="Wrap" Text="{x:Bind wp.Description}"/>
-           </ScrollViewer>
+            </ScrollViewer>
         </RelativePanel>
     </Grid>
 </Page>
