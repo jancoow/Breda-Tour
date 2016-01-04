@@ -94,6 +94,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="project.json" />
+    <Content Include="Assets\Flag_Icon.png" />
+    <Content Include="Assets\Map_Icon.png" />
+    <Content Include="Assets\UitklapIcon1.png" />
     <Content Include="Storage\Routes\routes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

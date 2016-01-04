@@ -25,7 +25,7 @@ namespace Breda_Tour.RouteSelectScreen
     public sealed partial class RouteExample : Page
     {
         Route route;
-        public string Waypoints { get; set; } 
+        public string WaypointsText { get; set; } 
 
         public RouteExample()
         {
@@ -35,10 +35,16 @@ namespace Breda_Tour.RouteSelectScreen
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             route = e.Parameter as Route;
-            Waypoints = "Aantal waypoints: " + 0;
+            WaypointsText = "Aantal waypoints: " + 0;
             if (route.Waypoints.Count != 0){
-                Waypoints = "Aantal waypoints: " +route.Waypoints.Count;
+                WaypointsText = "Aantal waypoints: " +route.Waypoints.Count;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame frame = Window.Current.Content as Frame;
+            //frame.Navigate(typeof(MapPage), route);
         }
     }
 }

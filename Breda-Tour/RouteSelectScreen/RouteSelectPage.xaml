@@ -28,14 +28,17 @@
                     <DataTemplate x:DataType="data:Route">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Width="340">
-                                <TextBlock Text="{Binding Title}" FontSize="24"/>
-                                <ToggleButton x:Name="toggleButton" Content="" IsChecked="False"/>
+                                <Image Source="ms-appx:///Assets/Map_Icon.png" Width="35" Height="35"/>
+                                <TextBlock Text="{Binding Title}" FontSize="24" Margin="15,0,0,0"/>
+                                <ToggleButton x:Name="toggleButton" IsChecked="False"  Margin="35,0,0,0">
+                                </ToggleButton>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Width="340" Visibility="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToVis}}">
-                                <TextBlock Text="Breda" FontSize="16"/>      
+                                <Image Source="ms-appx:///Assets/Flag_Icon.png" Width="25" Height="25" Margin="45,0,0,0"/>
+                                <TextBlock Text="Breda" Foreground="DarkGray" FontSize="16" Margin="15,0,0,0"/>
                             </StackPanel>
+                            <Line X1="0" X2="1080" Y1="5" Y2="5" Stroke="Gray" StrokeThickness="2"/>
                         </StackPanel>
-                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
