@@ -39,15 +39,25 @@ namespace Breda_Tour.SplashScreen
             f.Navigate(typeof(MainPage));
         }
 
+        /// <summary>
+        /// <author>Bart Reedijk</author>
+        /// Go to MainPage with English as the language
+        /// </summary>
         private void Button_English_Click(object sender, RoutedEventArgs e)
         {
+            App.Language = "en-US";
             ApplicationLanguages.PrimaryLanguageOverride = "en-US";
             Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
             f.Navigate(typeof(MainPage));
         }
 
+        /// <summary>
+        /// <author>Bart Reedijk</author>
+        /// Go to MainPage with Dutch as the language
+        /// </summary>
         private void Button_Dutch_Click(object sender, RoutedEventArgs e)
         {
+            App.Language = "nl-NL";
             ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
             Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
             f.Navigate(typeof(MainPage));

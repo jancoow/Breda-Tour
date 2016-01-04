@@ -27,4 +27,13 @@
   <data name="RouteSelectPagetxtSelectRoute.Header" xml:space="preserve">
     <value>Select route</value>
   </data>
+  <data name="HelpPagetxtBack.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="HelpPagetxtNext.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="AppSettingstxtLanguageString.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
 </root>

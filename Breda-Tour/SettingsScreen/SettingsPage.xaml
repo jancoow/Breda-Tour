@@ -19,10 +19,10 @@
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden">
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Uid="AppSettingsLanguageSettings" Style="{StaticResource SettingsHeaderStyle}" Foreground="White" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
-                <ListViewItem>
+                <ListViewItem Name="listViewItemSetupLanguage" Tapped="listViewItemSetupLanguage_Tapped">
                     <StackPanel Margin="8,0,0,0">
                         <TextBlock x:Uid="AppSettingstxtSetupLanguage" FontSize="18" Text="Taal instellen" Foreground="White"></TextBlock>
-                        <TextBlock Margin="0,-1,0,0" FontSize="12" Foreground="White" Text="{StaticResource AppLanguageDutch}"></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtLanguageString" Margin="0,-1,0,0" FontSize="12" Foreground="White" Text="Nederlands"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
                 <Rectangle Margin="0,15,0,0" Fill="#99FFFFFF" Height="1" />

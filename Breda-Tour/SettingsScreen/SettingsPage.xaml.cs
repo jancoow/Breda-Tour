@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Globalization;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -50,5 +51,22 @@ namespace Breda_Tours.SettingsScreen
             DataContext = this;
         }
 
+        private void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (App.Language == "nl-NL")
+            {
+                App.Language = "en-US";
+                ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+                Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+                Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                App.Language = "nl-NL";
+                ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
+                Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+                Frame.Navigate(typeof(MainPage));
+            }
+        }
     }
 }

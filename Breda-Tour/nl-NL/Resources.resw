@@ -123,6 +123,9 @@
   <data name="AppSettingsLanguageSettings.Text" xml:space="preserve">
     <value>Taal instellingen</value>
   </data>
+  <data name="AppSettingstxtLanguageString.Text" xml:space="preserve">
+    <value>Nederlands</value>
+  </data>
   <data name="AppSettingstxtSettings.Header" xml:space="preserve">
     <value>Instellingen</value>
   </data>
