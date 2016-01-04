@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="nl-NL" target-language="en-US" original="BREDA-TOUR/NL-NL/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.1517.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="BREDA-TOUR/NL-NL/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AppSettingstxtSettings.Header" translate="yes" xml:space="preserve">
+          <source>Instellingen</source>
+          <target state="translated" state-qualifier="tm-suggestion">Settings</target>
+        </trans-unit>
+        <trans-unit id="AppSettingstxtSetupLanguage.Text" translate="yes" xml:space="preserve">
+          <source>Taal instellen</source>
+          <target state="translated">Set up language</target>
+        </trans-unit>
+        <trans-unit id="AppSettingsHelp.Text" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="translated" state-qualifier="tm-suggestion">Help</target>
+        </trans-unit>
+        <trans-unit id="AppSettingsLanguageSettings.Text" translate="yes" xml:space="preserve">
+          <source>Taal instellingen</source>
+          <target state="translated" state-qualifier="mt-suggestion">Language settings</target>
+        </trans-unit>
+        <trans-unit id="RouteSelectPagetxtSelectRoute.Header" translate="yes" xml:space="preserve">
+          <source>Route selecteren</source>
+          <target state="translated" state-qualifier="mt-suggestion">Select route</target>
+        </trans-unit>
+        <trans-unit id="HelpPagetxtBack.Text" translate="yes" xml:space="preserve">
+          <source>Vorige</source>
+          <target state="translated">Back</target>
+        </trans-unit>
+        <trans-unit id="HelpPagetxtNext.Text" translate="yes" xml:space="preserve">
+          <source>Volgende</source>
+          <target state="translated">Next</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

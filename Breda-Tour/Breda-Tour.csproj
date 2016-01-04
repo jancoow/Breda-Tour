@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Breda_Tour</RootNamespace>
     <AssemblyName>Breda-Tour</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>nl-NL</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
@@ -90,19 +90,19 @@
   </PropertyGroup>
   <PropertyGroup Label="MultilingualAppToolkit">
     <MultilingualAppToolkitVersion>4.0</MultilingualAppToolkitVersion>
-    <MultilingualFallbackLanguage>en-US</MultilingualFallbackLanguage>
+    <MultilingualFallbackLanguage>nl-NL</MultilingualFallbackLanguage>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <PRIResource Include="nl-NL\Resources.resw" />
+    <PRIResource Include="en-US\Resources.resw" />
     <None Include="project.json" />
     <Content Include="Storage\Routes\routes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <PRIResource Include="en-US\Resources.resw" />
+    <PRIResource Include="nl-NL\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -188,11 +188,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="Storage\MultiLanguage\" />
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <XliffResource Include="MultilingualResources\Breda-Tour.nl-NL.xlf" />
+    <XliffResource Include="MultilingualResources\Breda-Tour.en-US.xlf" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

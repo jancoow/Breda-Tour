@@ -24,9 +24,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Foreground="White" FontSize="18" Text="Back" Margin="20,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock x:Uid="HelpPagetxtBack" Foreground="White" FontSize="18" Text="Back" Margin="20,0,0,0" VerticalAlignment="Center"/>
             <TextBlock Foreground="White" FontSize="18" Text="Page 1 of 4" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1"/>
-            <TextBlock Foreground="White" FontSize="18" Text="Next" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
+            <TextBlock x:Uid="HelpPagetxtNext" Foreground="White" FontSize="18" Text="Next" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
         </Grid>
     </Grid>
 </Page>
