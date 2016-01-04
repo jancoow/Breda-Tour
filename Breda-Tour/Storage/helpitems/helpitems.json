@@ -1,0 +1,21 @@
+{
+  "HelpItems": [
+        {
+            "Language" : "NL_nl",
+            "Title" : "Taal selecteren",
+            "Steps" : 
+            [
+                {
+                    "Title":"Druk op settings",
+                    "Description":"Jemoeder",
+                    "ImageSource" :"1.jpg"
+                },
+                {
+                    "Title":"Druk op settings",
+                    "Description":"Jemoeder",
+                    "ImageSource" :"1.jpg"
+                }
+            ] 
+        },
+    ]
+}

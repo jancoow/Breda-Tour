@@ -97,11 +97,17 @@
     <Content Include="Storage\Routes\routes.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Storage\helpitems\helpitems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\HelpItem.cs" />
+    <Compile Include="Data\HelpItemStep.cs" />
+    <Compile Include="Data\HelpPageDatabase.cs" />
     <Compile Include="Data\Route.cs" />
     <Compile Include="Data\RouteDatabase.cs" />
     <Compile Include="Data\Waypoint.cs" />
