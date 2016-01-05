@@ -22,18 +22,13 @@ namespace Breda_Tour.Data
         }
         private void readHelpItems()
         {
-            Task.Run(() =>
+            string json = File.ReadAllText("Storage/helpitems/helpitems.json");
+            JObject JsonObject = JObject.Parse(json);
+            IList<JToken> JsonList = JsonObject["HelpItems"].ToList();
+            foreach (JToken helpitem in JsonList)
             {
-                string json = File.ReadAllText("Storage/helpitems/helpitems.json");
-                JObject JsonObject = JObject.Parse(json);
-                IList<JToken> JsonList = JsonObject["HelpItems"].ToList();
-                foreach (JToken helpitem in JsonList)
-                {
-                    HelpItems.Add(JsonConvert.DeserializeObject<HelpItem>(helpitem.ToString()));
-                }
-                System.Diagnostics.Debug.WriteLine(HelpItems[0].HelpItemSteps[0].Title);
-
-            });
+                HelpItems.Add(JsonConvert.DeserializeObject<HelpItem>(helpitem.ToString()));
+            }
         }
     }
 }

@@ -6,13 +6,13 @@
             "Steps" : 
             [
                 {
-                    "Title":"Druk op settings",
-                    "Description":"Jemoeder",
+                    "Title":"Ga naar het instellingen menu",
+                    "Description":"Druk hiervoor op het 3e icoontje bovenin het menu. ",
                     "ImageSource" :"1.jpg"
                 },
                 {
-                    "Title":"Druk op settings",
-                    "Description":"Jemoeder",
+                    "Title":"Druk op taal instellen",
+                    "Description":"",
                     "ImageSource" :"1.jpg"
                 }
             ] 

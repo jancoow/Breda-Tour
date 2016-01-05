@@ -48,5 +48,10 @@ namespace Breda_Tours.SettingsScreen
             DataContext = this;
         }
 
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            HelpItem helpitem = (HelpItem)e.ClickedItem;
+            MainPage.RootFrame.Navigate(typeof(HelpPage), helpitem);
+        }
     }
 }
