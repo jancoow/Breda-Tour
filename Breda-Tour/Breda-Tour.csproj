@@ -117,7 +117,6 @@
     <Compile Include="CustomControls\DefaultTopBar.xaml.cs">
       <DependentUpon>DefaultTopBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HelpScreen\HelpItem.cs" />
     <Compile Include="HelpScreen\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>

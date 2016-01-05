@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Breda_Tour.Data
 {
-    class HelpItemStep
+    public class HelpItemStep
     {
         public string Title { get; private set; }
         public string Description { get; private set; }

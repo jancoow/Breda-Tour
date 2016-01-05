@@ -44,7 +44,12 @@
                 <GradientStop Color="#185a9d" Offset="0"/>
                 <GradientStop Color="#43cea2" Offset="1"/>
             </LinearGradientBrush>
+            <LinearGradientBrush x:Key="BredaTourDropShadowBrush" StartPoint="0,0" EndPoint="0,1" SpreadMethod="Reflect">
+                <GradientStop Color="#44000000" Offset="0"/>
+                <GradientStop Color="#FFFFFFFF" Offset="0.5"/>
+                <GradientStop Color="#44000000" Offset="1"/>
 
+            </LinearGradientBrush>
             <Style TargetType="TextBlock" x:Key="SettingsHeaderStyle">
                 <Setter Property="Margin" Value="20,15,0,15"/>
                 <Setter Property="FontSize" Value="14"/>

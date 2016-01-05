@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,12 @@ using System.Threading.Tasks;
 namespace Breda_Tour.Data
 { 
 
-    class HelpPageDatabase
+    public class HelpPageDatabase
     {
-        private List<HelpItem> HelpItems;
+        public ObservableCollection<HelpItem> HelpItems;
         public HelpPageDatabase()
         {
-            HelpItems = new List<HelpItem>();
+            HelpItems = new ObservableCollection<HelpItem>();
             readHelpItems();
 
         }

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Breda_Tour;
 
 using Breda_Tour.HelpScreen;
+using Breda_Tour.Data;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -41,12 +42,9 @@ namespace Breda_Tours.SettingsScreen
             this.InitializeComponent();
 
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
-            HelpItems = new ObservableCollection<HelpItem>();
-            for (int i = 0; i < 10; i++)
-                HelpItems.Add(new HelpItem
-                {
-                    Title = "HelpItem" + i
-                });
+            HelpPageDatabase helpDatabase = new HelpPageDatabase();
+            HelpItems = helpDatabase.HelpItems;
+            
             DataContext = this;
         }
 
