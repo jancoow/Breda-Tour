@@ -54,7 +54,10 @@ namespace Breda_Tour.MapScreen
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
-            //route = e.Parameter as Route;
+            if (this.route == null)
+            {
+                route = e.Parameter as Route;
+            }
         }
 
         public async void ShowLocaton(Geopoint point)

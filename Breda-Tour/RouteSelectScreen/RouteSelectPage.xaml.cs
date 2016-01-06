@@ -35,8 +35,7 @@ namespace Breda_Tour.RouteSelectScreen
         private void Routes_ItemClick(object sender, ItemClickEventArgs e)
         {
             Route route = e.ClickedItem as Route;
-            Frame frame = Window.Current.Content as Frame;
-            frame.Navigate(typeof(RouteExample), route);
+            MainPage.RootFrame.Navigate(typeof (RouteExample), route);
         }
     }
 }

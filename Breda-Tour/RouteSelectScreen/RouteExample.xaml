@@ -9,14 +9,16 @@
     xmlns:data="using:Breda_Tour.Data"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Background="White">
         <c:DefaultTopBar Header="Routevoorbeeld" Margin="0,-300,0,300"/>
         <TextBlock Text="Routeinformatie" FontSize="16" Margin="17,45,0,-23"/>
         <TextBlock Text="Tijdsduur: " FontSize="16" Margin="17,80,0,-25"/>
         <TextBlock Text="Loopafstand: " FontSize="16" Margin="17,95,0,-25"/>
         <TextBlock Text="{x:Bind WaypointsText}" FontSize="16" Margin="17,110,0,-25"/>
-        <Button Click="Button_Click" Margin="200,139,0,489"/>
-        <ListView x:Name="Waypoints" ItemsSource="{x:Bind route.Waypoints}" Margin="0,328,0,0">
+        <Button Visibility="Visible" Click="Button_Click" >
+            <TextBlock Text="Kappa Button"/>
+        </Button>
+            <ListView x:Name="Waypoints" ItemsSource="{x:Bind route.Waypoints}" Margin="0,328,0,0">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Padding" Value="0"/>
