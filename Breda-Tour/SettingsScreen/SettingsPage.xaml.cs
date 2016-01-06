@@ -44,7 +44,7 @@ namespace Breda_Tours.SettingsScreen
 
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
             HelpPageDatabase helpDatabase = new HelpPageDatabase();
-            HelpItems = helpDatabase.HelpItems;
+            HelpItems = helpDatabase.GetCurrentHelpItems();
             
             DataContext = this;
         }
@@ -57,18 +57,14 @@ namespace Breda_Tours.SettingsScreen
 		
         private void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (App.Language == "nl-NL")
+            if (App.Language == App.Languages[0])
             {
-                App.Language = "en-US";
-                ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-                Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+                App.Language = App.Languages[1];
                 Frame.Navigate(typeof(MainPage));
             }
             else
             {
-                App.Language = "nl-NL";
-                ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
-                Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+                App.Language = App.Languages[0];
                 Frame.Navigate(typeof(MainPage));
             }
         }

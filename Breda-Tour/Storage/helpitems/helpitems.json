@@ -1,17 +1,16 @@
 {
   "HelpItems": [
         {
-            "Language" : "nl_NL",
+            "Language" : "nl-NL",
             "Title" : "Taal selecteren",
-            "Steps" : 
-            [
+            "Steps" : [
                 {
                     "Title":"Ga naar het instellingen menu",
                     "Description":"Druk hiervoor op het 3e icoontje bovenin het menu. ",
                     "ImageSource" :"taal_1.jpg"
                 },
                 {
-                    "Title":"Druk op taal instellen",
+                    "Title":"Druk op taal instellen / set language",
                     "Description":"Eerste optie in het menu.",
                     "ImageSource" :"taal_2.jpg"
                 },
@@ -22,5 +21,26 @@
                 }
             ] 
         },
+        {
+			      "Language" : "en-US",
+            "Title" : "Select Language",
+            "Steps" : [
+                {
+                    "Title":"Go to the settings menu",
+                    "Description":"To do that, press on the third icon in the top menu.",
+                    "ImageSource" :"taal_1.jpg"
+                },
+                {
+                    "Title":"Press on taal instellen / set language",
+                    "Description":"First option in the menu",
+                    "ImageSource" :"taal_2.jpg"
+                },
+                {
+                    "Title":"Select the preferred language",
+                    "Description":"Here you can choose between the available languages of the application.",
+                    "ImageSource" :"taal_3.jpg"
+                }
+            ]
+		}
     ]
 }

@@ -30,7 +30,18 @@ namespace Breda_Tour.HelpScreen
             {
                 currentpage = pagenumber;
                 this.DataContext = helpitem.HelpItemSteps[currentpage];
-                PageNumberTextBlock.Text = "Page " + (currentpage+1) + " of " + helpitem.HelpItemSteps.Count;
+                if (App.Language == App.Languages[1])
+                {
+                    PageNumberTextBlock.Text = "Page " + (currentpage + 1) + " of " + helpitem.HelpItemSteps.Count;
+                }
+                else if (App.Language == App.Languages[0])
+                {
+                    PageNumberTextBlock.Text = "Pagina " + (currentpage + 1) + " van " + helpitem.HelpItemSteps.Count;
+                }
+                else
+                {
+                    PageNumberTextBlock.Text = "Page " + (currentpage + 1) + " of " + helpitem.HelpItemSteps.Count;
+                }
             }
         }
 

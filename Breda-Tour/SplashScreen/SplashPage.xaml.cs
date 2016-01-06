@@ -46,9 +46,7 @@ namespace Breda_Tour.SplashScreen
         /// </summary>
         private void Button_English_Click(object sender, RoutedEventArgs e)
         {
-            App.Language = "en-US";
-            ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-            Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+            App.Language = App.Languages[1];
             f.Navigate(typeof(MainPage));
         }
 
@@ -58,9 +56,7 @@ namespace Breda_Tour.SplashScreen
         /// </summary>
         private void Button_Dutch_Click(object sender, RoutedEventArgs e)
         {
-            App.Language = "nl-NL";
-            ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
-            Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+            App.Language = App.Languages[0];
             f.Navigate(typeof(MainPage));
         }
 
