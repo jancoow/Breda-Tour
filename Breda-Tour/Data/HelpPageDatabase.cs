@@ -14,6 +14,7 @@ namespace Breda_Tour.Data
     public class HelpPageDatabase
     {
         public ObservableCollection<HelpItem> HelpItems;
+        
         public HelpPageDatabase()
         {
             HelpItems = new ObservableCollection<HelpItem>();
@@ -29,6 +30,17 @@ namespace Breda_Tour.Data
             {
                 HelpItems.Add(JsonConvert.DeserializeObject<HelpItem>(helpitem.ToString()));
             }
+        }
+
+        public ObservableCollection<HelpItem> GetCurrentHelpItems()
+        {
+            ObservableCollection<HelpItem> helpItems = new ObservableCollection<HelpItem>();
+            foreach(var item in HelpItems)
+            {
+                if (item.Language == App.Language)
+                    helpItems.Add(item);
+            }
+            return helpItems;
         }
     }
 }

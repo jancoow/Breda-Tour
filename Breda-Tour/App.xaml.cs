@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -7,6 +9,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,11 +25,34 @@ namespace Breda_Tour
     /// </summary>
     sealed partial class App : Application
     {
+        #region Languages
+        private static string _language;
+        /// <summary>
+        /// Current languagues: [0] = nl-NL, [1] = en-US
+        /// </summary>
+        public static string[] Languages { get; } = { "nl-NL", "en-US" };
         /// <summary>
         /// Global current language property
         /// </summary>
-        public static string Language { get; set; }
-
+        public static string Language {
+            get {
+                return _language;
+            }
+            set {
+                _language = value;
+                if (value == Languages[0])
+                {
+                    ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
+                    Debug.WriteLine("mijn taal is:" + ApplicationLanguages.ManifestLanguages.First());
+                }
+                else if (value == Languages[1])
+                {
+                    ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+                    Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+                }
+            }
+        }
+        #endregion
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
