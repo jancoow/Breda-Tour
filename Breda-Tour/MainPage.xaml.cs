@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Breda_Tour.MapScreen;
+using Breda_Tour.RouteSelectScreen;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,7 +32,7 @@ namespace Breda_Tour
         {
             this.InitializeComponent();
             f = this.rootFrame;
-            f.Navigate(typeof(SettingsPage));
+            f.Navigate(typeof(RouteSelectPage));
         }
 
         public static Frame RootFrame {

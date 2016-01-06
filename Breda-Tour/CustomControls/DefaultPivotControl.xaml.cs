@@ -59,7 +59,7 @@ namespace Breda_Tour.CustomControls
 
         private void MapRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            MainPage.RootFrame.Navigate(typeof (MapScreen.MapPage));
         }
 
         private void SettingsRadioButton_Checked(object sender, RoutedEventArgs e)
