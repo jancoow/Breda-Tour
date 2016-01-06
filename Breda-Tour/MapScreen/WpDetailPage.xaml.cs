@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Breda_Tour.Data;
+using Breda_Tour.RouteSelectScreen;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,9 +39,23 @@ namespace Breda_Tour.MapScreen
         {
             wp = e.Parameter as Waypoint;
             this.DataContext = wp;
-
+            if (wp.FromPreview)
+            {
+                SystemNavigationManager.GetForCurrentView().BackRequested += RouteExample_BackRequested;
+            }
+            else
+            {
+                SystemNavigationManager.GetForCurrentView().BackRequested += MainPage_BackRequested;
+            }
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            SystemNavigationManager.GetForCurrentView().BackRequested += MainPage_BackRequested;
+            wp.FromPreview = false;
+        }
+
+        private void RouteExample_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            e.Handled = true;
+            SystemNavigationManager.GetForCurrentView().BackRequested -= RouteExample_BackRequested;
+            MainPage.RootFrame.Navigate(typeof(RouteExample));
         }
 
         private void MainPage_BackRequested(object sender, BackRequestedEventArgs e)

@@ -18,6 +18,7 @@ namespace Breda_Tour.Data
         public String Title { get; private set; }
         public String Description { get; private set; }
         public List<Picture> Pictures { get; private set; }
+        public bool FromPreview { get; set; } 
 
         public Waypoint(double Lat, double Long, String Title, String Description, List<string> pictures)
         {
