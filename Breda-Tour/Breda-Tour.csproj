@@ -97,6 +97,7 @@
     <Content Include="Assets\Flag_Icon.png" />
     <Content Include="Assets\Map_Icon.png" />
     <Content Include="Assets\UitklapIcon1.png" />
+    <Content Include="Assets\UitklapIcon2.png" />
     <Content Include="Storage\Images\1.jpg" />
     <Content Include="Storage\Images\10.jpg" />
     <Content Include="Storage\Images\11.jpg" />
@@ -159,6 +160,7 @@
       <DependentUpon>WpDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteSelectScreen\BoolToString.cs" />
     <Compile Include="RouteSelectScreen\Converter.cs" />
     <Compile Include="RouteSelectScreen\RouteExample.xaml.cs">
       <DependentUpon>RouteExample.xaml</DependentUpon>
@@ -213,9 +215,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="RouteSelectScreen\RouteExample.xaml">
- 		<Generator>MSBuild:Compile</Generator>
-     	<SubType>Designer</SubType>
-     </Page>    
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MapScreen\ImageViewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

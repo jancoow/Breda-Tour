@@ -22,6 +22,7 @@
         <RelativePanel Grid.Row="2" Margin="0,5">
             <RelativePanel.Resources>
                 <con:Converter x:Key="BoolToVis"/>
+                <con:BoolToString x:Key="BoolToString"/>
             </RelativePanel.Resources>
             <ListView x:Name="Routes" ItemsSource="{x:Bind AllRoutes.Routes}" IsItemClickEnabled="True" ItemClick="Routes_ItemClick">
                 <ListView.ItemTemplate>
@@ -30,7 +31,8 @@
                             <StackPanel Orientation="Horizontal" Width="340">
                                 <Image Source="ms-appx:///Assets/Map_Icon.png" Width="35" Height="35"/>
                                 <TextBlock Text="{Binding Title}" FontSize="24" Margin="15,0,0,0"/>
-                                <ToggleButton x:Name="toggleButton" IsChecked="False"  Margin="35,0,0,0">
+                                <ToggleButton x:Name="toggleButton" Background="Transparent" IsChecked="False" Width="40" Height="40" Margin="35,0,0,0">
+                                    <Image Source="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToString}}" Height="29" Margin="-10,0,-9,-1"/>
                                 </ToggleButton>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Width="340" Visibility="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToVis}}">
