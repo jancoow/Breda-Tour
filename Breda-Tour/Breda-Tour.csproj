@@ -75,6 +75,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -99,7 +100,16 @@
     </Content>
     <PRIResource Include="en-US\Resources.resw" />
     <None Include="project.json" />
+    <Content Include="Storage\helpimages\taal_1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Storage\helpimages\taal_2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Storage\Routes\routes.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Storage\helpitems\helpitems.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <PRIResource Include="nl-NL\Resources.resw" />
@@ -108,6 +118,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\HelpItem.cs" />
+    <Compile Include="Data\HelpItemStep.cs" />
+    <Compile Include="Data\HelpPageDatabase.cs" />
     <Compile Include="Data\Route.cs" />
     <Compile Include="Data\RouteDatabase.cs" />
     <Compile Include="Data\Waypoint.cs" />
@@ -117,7 +130,6 @@
     <Compile Include="CustomControls\DefaultTopBar.xaml.cs">
       <DependentUpon>DefaultTopBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HelpScreen\HelpItem.cs" />
     <Compile Include="HelpScreen\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>

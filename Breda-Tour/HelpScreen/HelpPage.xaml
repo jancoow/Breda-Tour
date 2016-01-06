@@ -14,19 +14,35 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <c:DefaultTopBar MySymbol="{StaticResource SymbolClose}" Header="HelpItem" />
-        <StackPanel Background="White" Grid.Row="1">
+        <c:DefaultTopBar MySymbol="{StaticResource SymbolClose}" Tapped="Close_Tapped" x:Name="Topbar"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" VerticalScrollBarVisibility="Hidden" Background="White"  Grid.Row="1" Padding="20,20,20,0">
+            <StackPanel Orientation="Vertical" Height="Auto">
+                <TextBlock Text="{Binding Title}" FontWeight="Bold"/>
+                <Image
+                Name="HelpImage"
+                Height="400"
+                Source="{Binding ImageSource}"    
+                    >
 
-        </StackPanel>
+                </Image>
+                <TextBlock Margin="0,10,0,0" Text="Description" FontWeight="Bold"/>
+                <TextBlock Margin="0,10,0,0"
+                       TextWrapping="Wrap"
+                       Text="{Binding Description}">
+                </TextBlock>
+
+            </StackPanel>
+        </ScrollViewer>
+       
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Uid="HelpPagetxtBack" Foreground="White" FontSize="18" Text="Back" Margin="20,0,0,0" VerticalAlignment="Center"/>
-            <TextBlock Foreground="White" FontSize="18" Text="Page 1 of 4" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1"/>
-            <TextBlock x:Uid="HelpPagetxtNext" Foreground="White" FontSize="18" Text="Next" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
+            <TextBlock Tapped="PageBack_Tapped" Foreground="White" FontSize="18" Text="Back" Margin="20,0,0,0" VerticalAlignment="Center"/>
+            <TextBlock Name="PageNumberTextBlock" Foreground="White" FontSize="18" Text="Page 1 of 4" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1"/>
+            <TextBlock Tapped="PageForward_Tapped" Foreground="White" FontSize="18" Text="Next" Margin="0,0,20,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2"/>
         </Grid>
     </Grid>
 </Page>
