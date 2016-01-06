@@ -18,8 +18,8 @@ namespace Breda_Tour.Data
         {
             HelpItems = new ObservableCollection<HelpItem>();
             readHelpItems();
-
         }
+
         private void readHelpItems()
         {
             string json = File.ReadAllText("Storage/helpitems/helpitems.json");

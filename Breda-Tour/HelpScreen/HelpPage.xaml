@@ -21,7 +21,8 @@
                 <Image
                 Name="HelpImage"
                 Height="400"
-                Width="300" >
+                Source="{Binding ImageSource}"    
+                    >
 
                 </Image>
                 <TextBlock Margin="0,10,0,0" Text="Description" FontWeight="Bold"/>

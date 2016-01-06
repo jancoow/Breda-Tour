@@ -12,11 +12,11 @@ namespace Breda_Tour.Data
         public string Description { get; private set; }
         public string ImageSource { get; private set; }
 
-        public HelpItemStep(string Title, string Description, string Imagesource)
+        public HelpItemStep(string Title, string Description, string ImageSource)
         {
             this.Title = Title;
             this.Description = Description;
-            this.ImageSource = ImageSource;
+            this.ImageSource = "ms-appx:///Storage/helpimages/"+ImageSource;
         }
 
     }
