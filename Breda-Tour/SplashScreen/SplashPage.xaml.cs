@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Globalization;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,6 +38,30 @@ namespace Breda_Tour.SplashScreen
         {
             f.Navigate(typeof(MainPage));
         }
-        
+
+        /// <summary>
+        /// <author>Bart Reedijk</author>
+        /// Go to MainPage with English as the language
+        /// </summary>
+        private void Button_English_Click(object sender, RoutedEventArgs e)
+        {
+            App.Language = "en-US";
+            ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+            Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+            f.Navigate(typeof(MainPage));
+        }
+
+        /// <summary>
+        /// <author>Bart Reedijk</author>
+        /// Go to MainPage with Dutch as the language
+        /// </summary>
+        private void Button_Dutch_Click(object sender, RoutedEventArgs e)
+        {
+            App.Language = "nl-NL";
+            ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
+            Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
+            f.Navigate(typeof(MainPage));
+        }
+
     }
 }

@@ -14,19 +14,19 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*" ScrollViewer.VerticalScrollMode="Enabled"/>
         </Grid.RowDefinitions>
-        <c:DefaultTopBar Header="Instellingen"/>
+        <c:DefaultTopBar Header="Instellingen" x:Uid="AppSettingstxtSettings"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden">
             <StackPanel Orientation="Vertical" Background="White">
-                <TextBlock Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
-                <ListViewItem>
+                <TextBlock x:Uid="AppSettingsLanguageSettings"  Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
+                <ListViewItem Name="listViewItemSetupLanguage" Tapped="listViewItemSetupLanguage_Tapped">
                     <StackPanel Margin="8,0,0,0">
-                        <TextBlock FontSize="18" Text="Taal instellen"></TextBlock>
-                        <TextBlock Margin="0,-1,0,0" FontSize="12" Text="{StaticResource AppLanguageDutch}"></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtSetupLanguage" FontSize="18" Text="Taal instellen" Foreground="White"></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtLanguageString" Margin="0,-1,0,0" FontSize="12" Foreground="White" Text="Nederlands"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
                 <Rectangle Margin="0,15,0,0" Fill="#99000000" Height="1" />
-                <TextBlock Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsHelp}"></TextBlock>
+                <TextBlock x:Uid="AppSettingsHelp" Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsHelp}"></TextBlock>
                 <ListView ItemsSource="{x:Bind HelpItems}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" >
                     <ListView.ItemTemplate >
                         <DataTemplate  x:DataType="data:HelpItem">
