@@ -124,6 +124,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteSelectScreen\RouteSelectPage.xaml.cs">
       <DependentUpon>RouteSelectPage.xaml</DependentUpon>
