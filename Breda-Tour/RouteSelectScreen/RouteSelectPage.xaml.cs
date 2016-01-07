@@ -39,6 +39,7 @@ namespace Breda_Tour.RouteSelectScreen
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             CurrentRoutes = AllRoutes.GetCurrentRoutes();
+            System.Diagnostics.Debug.WriteLine(CurrentRoutes[0].Language);
         }
 
         private void Routes_ItemClick(object sender, ItemClickEventArgs e)
