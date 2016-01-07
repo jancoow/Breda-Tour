@@ -38,6 +38,10 @@
           <source>Nederlands</source>
           <target state="translated">English</target>
         </trans-unit>
+        <trans-unit id="HelpScreenPagetxtHelpScreen.Header" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="translated" state-qualifier="tm-suggestion">Help</target>
+        </trans-unit>
       </group>
     </body>
   </file>

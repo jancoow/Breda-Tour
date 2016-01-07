@@ -36,4 +36,7 @@
   <data name="AppSettingstxtLanguageString.Text" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="HelpScreenPagetxtHelpScreen.Header" xml:space="preserve">
+    <value>Help</value>
+  </data>
 </root>

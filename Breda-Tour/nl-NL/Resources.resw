@@ -138,6 +138,9 @@
   <data name="HelpPagetxtNext.Text" xml:space="preserve">
     <value>Volgende</value>
   </data>
+  <data name="HelpScreenPagetxtHelpScreen.Header" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="RouteSelectPagetxtSelectRoute.Header" xml:space="preserve">
     <value>Route selecteren</value>
   </data>

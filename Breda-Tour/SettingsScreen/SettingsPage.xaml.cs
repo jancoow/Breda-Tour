@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Globalization;
+using Breda_Tour.SplashScreen;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,31 +30,13 @@ namespace Breda_Tours.SettingsScreen
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
-        public ObservableCollection<HelpItem> HelpItems
-        {
-            get { return (ObservableCollection<HelpItem>)GetValue(HelpItemProperty); }
-            set { SetValue(HelpItemProperty, value); }
-        }
-
-        public static readonly DependencyProperty HelpItemProperty =
-        DependencyProperty.Register("HelpItems", typeof(ObservableCollection<HelpItem>), typeof(SettingsPage), null);
-
-        public SettingsPage()
+     public SettingsPage()
         {
             this.InitializeComponent();
-
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
-            HelpPageDatabase helpDatabase = new HelpPageDatabase();
-            HelpItems = helpDatabase.GetCurrentHelpItems();
-            
-            DataContext = this;
         }
 
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            HelpItem helpitem = (HelpItem)e.ClickedItem;
-            MainPage.RootFrame.Navigate(typeof(HelpPage), helpitem);
-		}
+
 		
         private void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -67,6 +50,10 @@ namespace Breda_Tours.SettingsScreen
                 App.Language = App.Languages[0];
                 Frame.Navigate(typeof(MainPage));
             }
+        }
+        private void listViewItemReset_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SplashPage));
         }
     }
 }
