@@ -142,7 +142,7 @@
     <value>Help</value>
   </data>
   <data name="MapPagetxtKaart.Header" xml:space="preserve">
-    <value>Kaart</value>
+    <value>Map</value>
   </data>
   <data name="RouteExamplePagetxtRouteInformatie.Text" xml:space="preserve">
     <value>Route informatie</value>
