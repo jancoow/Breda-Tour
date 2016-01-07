@@ -14,7 +14,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*" ScrollViewer.VerticalScrollMode="Enabled"/>
         </Grid.RowDefinitions>
-        <c:DefaultTopBar Header="Instellingen" x:Uid="AppSettingstxtSettings"/>
+        <c:DefaultTopBar Header="Help" x:Uid="HelpScreenPagetxtHelpScreen"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
         <StackPanel Grid.Row="2" Background="White">
             
