@@ -39,6 +39,8 @@ namespace Breda_Tour.RouteSelectScreen
 
         public RouteExample()
         {
+            MapService.ServiceToken =
+                "P4P2fAwXuk7ndsVIsaaV~uYjur55RgwmLsiwFwd72bQ~ApDRixf1L-0o_kMY8EtBBDm8xe7G2oz1k2-u0HQIATvSp-iiKr5KLNkYc1HF5D5e";
             InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
@@ -84,6 +86,7 @@ namespace Breda_Tour.RouteSelectScreen
                 geopoints.Add(wayPoint.Position);
             }
             MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
+            Debug.Write("Finder status: " + finder.Status);
             if (finder.Status == MapRouteFinderStatus.Success)
             {
                 //Create route for mapPage
@@ -91,16 +94,20 @@ namespace Breda_Tour.RouteSelectScreen
                 routeView.RouteColor = Colors.Firebrick;
                 routeView.OutlineColor = Colors.Black;
                 //route duration
-                int tijd = ((int)finder.Route.EstimatedDuration.TotalMinutes);
+                int tijd = ((int) finder.Route.EstimatedDuration.TotalMinutes);
                 RouteTijdText = $"Tijdsduur: {tijd} min";
                 RouteBlok.Text = RouteTijdText;
                 //Route distance
-                LoopafstandText = $"Loopafstand: {(finder.Route.LengthInMeters/1000)} km";
+                LoopafstandText = $"Loopafstand: {(Convert.ToInt32(finder.Route.LengthInMeters/1000))} km";
                 Loopblok.Text = LoopafstandText;
                 //Waypoint text
                 WaypointsBlok.Text = WaypointsText;
                 ProgressRing.Visibility = Visibility.Collapsed;
                 StartButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ShowRouteInfo();
             }
         }
 

@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Shapes;
 using Breda_Tour.CustomControls;
 using System.Diagnostics;
+using Windows.UI.Xaml.Automation.Peers;
 using Breda_Tour.Data;
 using Breda_Tour.RouteSelectScreen;
 
@@ -59,6 +60,9 @@ namespace Breda_Tour.MapScreen
             {
                 RouteExample.fromRouteExamp = false;
                 route = e.Parameter as Route;
+                Map.MapElements.Clear();
+                gps.History.Clear();
+                ShowLocaton(gps.Position.Coordinate.Point);
                 ShowWaypoints(route);
                 ShowRoute();
             }
@@ -144,6 +148,18 @@ namespace Breda_Tour.MapScreen
             //        }
             //    }
             //}
+        }
+
+        public async void DrawWalkingPath(List<BasicGeoposition> positions)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                MapPolyline mapPolyline = new MapPolyline();
+                mapPolyline.StrokeColor = Colors.Blue;
+                mapPolyline.StrokeThickness = 3;
+                mapPolyline.Path = new Geopath(positions);
+                Map.MapElements.Add(mapPolyline);
+            });
         }
     }
 }

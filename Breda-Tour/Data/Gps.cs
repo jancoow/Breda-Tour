@@ -17,11 +17,9 @@ namespace Breda_Tour.Data
         {
             get { return _position; }
         }
-        private List<Geoposition> _history;
-        public List<Geoposition> History
-        {
-            get { return _history; }
-        }
+
+        public List<BasicGeoposition> History { get; set; }
+
 
         private PositionStatus _status;
         public PositionStatus Status
@@ -31,7 +29,7 @@ namespace Breda_Tour.Data
 
         public Gps(MapPage mapPage)
         {
-            _history = new List<Geoposition>();
+            History = new List<BasicGeoposition>();
             this.mapPage = mapPage;
         }
 
@@ -51,7 +49,9 @@ namespace Breda_Tour.Data
                     break;
                 case GeolocationAccessStatus.Denied:
                     _status = PositionStatus.NotAvailable;
+                    geolocator = null;
                     bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
+                    Refresh();
                     break;
                 case GeolocationAccessStatus.Unspecified:
                     _status = PositionStatus.NotAvailable;
@@ -61,8 +61,15 @@ namespace Breda_Tour.Data
 
         private void OnPositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
-            mapPage.ShowLocaton(args.Position.Coordinate.Point);
             _position = args.Position;
+            mapPage.ShowLocaton(_position.Coordinate.Point);
+            //For route history line
+            BasicGeoposition BasicG = _position.Coordinate.Point.Position;
+            History.Add(BasicG);
+            if (History.Count >= 2)
+            {
+                mapPage.DrawWalkingPath(History);
+            }
         }
 
         private void OnStatusChanged(Geolocator sender, StatusChangedEventArgs args)
