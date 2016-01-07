@@ -139,15 +139,6 @@ namespace Breda_Tour.MapScreen
             });
         }
 
-        public async void ResetRoute()
-        {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Map.MapElements.Clear();
-                gps.History.Clear();
-            });
-        }
-
         private void OnGeofenceStateChange(GeofenceMonitor sender, object args)
         {
             var reports = sender.ReadReports();
