@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Windows.Devices.AllJoyn;
 using Windows.Devices.Geolocation;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.System;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media.Animation;
 using Breda_Tour.MapScreen;
 
 namespace Breda_Tour.Data
@@ -12,6 +15,7 @@ namespace Breda_Tour.Data
     {
         private MapPage mapPage;
         private Geolocator geolocator;
+
         private Geoposition _position;
         public Geoposition Position
         {
@@ -82,13 +86,10 @@ namespace Breda_Tour.Data
 
         public async void Refresh()
         {
-            if (geolocator == null)
-            {
-                Start();
-            }
-            else
+            if (geolocator != null)
             {
                 _position = await geolocator.GetGeopositionAsync();
+                mapPage.ShowLocaton(_position.Coordinate.Point);
             }
         }
     }

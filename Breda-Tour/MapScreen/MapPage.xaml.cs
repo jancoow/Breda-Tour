@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Shapes;
 using Breda_Tour.CustomControls;
 using System.Diagnostics;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.UI.Xaml.Automation.Peers;
 using Breda_Tour.Data;
 using Breda_Tour.RouteSelectScreen;
@@ -43,6 +44,7 @@ namespace Breda_Tour.MapScreen
 
         public MapPage()
         {
+            GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChange; 
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
             marker = new MapIcon();
             marker.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Marker.png"));
@@ -62,9 +64,9 @@ namespace Breda_Tour.MapScreen
                 route = e.Parameter as Route;
                 Map.MapElements.Clear();
                 gps.History.Clear();
-                ShowLocaton(gps.Position.Coordinate.Point);
+                gps.Refresh();
                 ShowWaypoints(route);
-                ShowRoute();
+                //ShowRoute();
             }
         }
 
@@ -111,11 +113,17 @@ namespace Breda_Tour.MapScreen
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
+                GeofenceMonitor.Current.Geofences.Clear();
                 for (int x = 0; x < route.Waypoints.Count; x++)
                 {
+                    //Waypoints handeling
                     Waypoint wayp = route.Waypoints.ElementAt(x);
                     MapIcon wp = new MapIcon { Location = wayp.Position, Title = (x + 1).ToString() };
                     Map.MapElements.Add(wp);
+                    //Geofencing handeling
+                    string name = $"Fence {(x + 1).ToString()}";
+                    GeofenceMonitor.Current.Geofences.Add(new Geofence(name,new Geocircle(wayp.Position.Position,10), MonitoredGeofenceStates.Entered, true,TimeSpan.FromSeconds(3)));
+                    Debug.Write("Geofences count: "+ GeofenceMonitor.Current.Geofences.Count);
                 }
                 //foreach (var waypoint in route.WayPoints)
                 //{
@@ -160,6 +168,11 @@ namespace Breda_Tour.MapScreen
                 mapPolyline.Path = new Geopath(positions);
                 Map.MapElements.Add(mapPolyline);
             });
+        }
+
+        private void OnGeofenceStateChange(GeofenceMonitor sender, object args)
+        {
+            Debug.Write("Kappa circle entered!!");
         }
     }
 }

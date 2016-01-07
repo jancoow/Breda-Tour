@@ -105,10 +105,7 @@ namespace Breda_Tour.RouteSelectScreen
                 ProgressRing.Visibility = Visibility.Collapsed;
                 StartButton.Visibility = Visibility.Visible;
             }
-            else
-            {
-                ShowRouteInfo();
-            }
+            StartButton.Visibility = Visibility.Visible;
         }
 
         private void Waypoints_OnItemClick(object sender, ItemClickEventArgs e)
