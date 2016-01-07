@@ -44,7 +44,7 @@ namespace Breda_Tour.Data
             switch (accessStatus)
             {
                 case GeolocationAccessStatus.Allowed:
-                    geolocator = new Geolocator { DesiredAccuracyInMeters = 5, MovementThreshold = 2 };
+                    geolocator = new Geolocator{DesiredAccuracy = PositionAccuracy.High,MovementThreshold = 3};
                     // Subscribe events
                     geolocator.StatusChanged += OnStatusChanged;
                     geolocator.PositionChanged += OnPositionChanged;

@@ -30,7 +30,6 @@ namespace Breda_Tour.SplashScreen
         public SplashPage()
         {
             this.InitializeComponent();
-            new Notification("Hallo", "Test");
         }
 
         /// <author>Jannick van Ballegooijen</author>

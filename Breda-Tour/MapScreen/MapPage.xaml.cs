@@ -38,13 +38,12 @@ namespace Breda_Tour.MapScreen
     public sealed partial class MapPage : Page
     {
         private MapIcon marker;
-        private Geopoint point;
         private Gps gps;
         private Route route;
 
         public MapPage()
         {
-            GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChange; 
+            GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChange;
             this.NavigationCacheMode = NavigationCacheMode.Enabled;
             marker = new MapIcon();
             marker.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/Marker.png"));
@@ -56,7 +55,8 @@ namespace Breda_Tour.MapScreen
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
             if (RouteExample.fromRouteExamp)
             {
@@ -66,50 +66,34 @@ namespace Breda_Tour.MapScreen
                 gps.History.Clear();
                 gps.Refresh();
                 ShowWaypoints(route);
-                //ShowRoute();
+                ShowRoute();
             }
         }
 
-        public async void ShowLocaton(Geopoint point)
+        public async void ShowLocaton(Geopoint _point)
         {
-            this.point = point;
+            Geopoint point = _point;
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-           {
-               Map.Center = point;
-               if (!Map.MapElements.Contains(marker))
-               {
-                   Map.MapElements.Add(marker);
-               }
-               marker.Location = point;
-           });
+            {
+                Map.Center = point;
+                if (!Map.MapElements.Contains(marker))
+                {
+                    Map.MapElements.Add(marker);
+                }
+                marker.Location = point;
+            });
             await Map.TrySetViewAsync(point, 17);
         }
 
-        public async void ShowRoute()
+        private async void ShowRoute()
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Map.Routes.Add(RouteExample.routeView);
             });
-            //await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
-            //{
-            //    List<Geopoint> geopoints = new List<Geopoint>();
-            //    foreach (Waypoint wayPoint in route.Waypoints)
-            //    {
-            //        geopoints.Add(wayPoint.Position);
-            //    }
-            //    MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
-            //    if (finder.Status == MapRouteFinderStatus.Success)
-            //    {
-            //        MapRouteView routeView = new MapRouteView(finder.Route);
-            //        routeView.RouteColor = Colors.Firebrick;
-            //        routeView.OutlineColor = Colors.Black;
-            //        Map.Routes.Add(routeView);
-            //    }
-            //});
         }
 
-        public async void ShowWaypoints(Route route)
+        private async void ShowWaypoints(Route route)
         {
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
@@ -121,15 +105,10 @@ namespace Breda_Tour.MapScreen
                     MapIcon wp = new MapIcon { Location = wayp.Position, Title = (x + 1).ToString() };
                     Map.MapElements.Add(wp);
                     //Geofencing handeling
-                    string name = $"Fence {(x + 1).ToString()}";
-                    GeofenceMonitor.Current.Geofences.Add(new Geofence(name,new Geocircle(wayp.Position.Position,10), MonitoredGeofenceStates.Entered, true,TimeSpan.FromSeconds(3)));
-                    Debug.Write("Geofences count: "+ GeofenceMonitor.Current.Geofences.Count);
+                    string name = (x + 1).ToString();
+                    GeofenceMonitor.Current.Geofences.Add(new Geofence(name, new Geocircle(wayp.Position.Position, 25),
+                        MonitoredGeofenceStates.Entered, true, TimeSpan.FromSeconds(3)));
                 }
-                //foreach (var waypoint in route.WayPoints)
-                //{
-                //    MapIcon wp = new MapIcon() {Location = waypoint.Position, Title = waypoint.number.ToString()};
-                //    Map.MapElements.Add(wp);
-                //}
             });
         }
 
@@ -146,16 +125,6 @@ namespace Breda_Tour.MapScreen
                     }
                 }
             }
-            //foreach (var waypoint in route.WayPoints)
-            //{
-            //    if (Icon.Title != "")
-            //    {
-            //        if (waypoint.number == int.Parse(Icon.Title))
-            //        {
-            //            MainPage.RootFrame.Navigate(typeof(WpDetailPage), waypoint);
-            //        }
-            //    }
-            //}
         }
 
         public async void DrawWalkingPath(List<BasicGeoposition> positions)
@@ -170,9 +139,40 @@ namespace Breda_Tour.MapScreen
             });
         }
 
+        public async void ResetRoute()
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Map.MapElements.Clear();
+                gps.History.Clear();
+            });
+        }
+
         private void OnGeofenceStateChange(GeofenceMonitor sender, object args)
         {
-            Debug.Write("Kappa circle entered!!");
+            var reports = sender.ReadReports();
+            foreach (GeofenceStateChangeReport report in reports)
+            {
+                GeofenceState state = report.NewState;
+                Geofence geofence = report.Geofence;
+
+                if (state == GeofenceState.Entered)
+                {
+                    foreach (var waypoint in route.Waypoints)
+                    {
+                        int index = waypoint.Title.IndexOf(".");
+                        string number = "";
+                        if (index > 0)
+                        {
+                            number = waypoint.Title.Substring(0, index);
+                        }
+                        if (geofence.Id == number)
+                        {
+                            new Notification("Waypoint", waypoint.Title);
+                        }
+                    }
+                }
+            }
         }
     }
 }
