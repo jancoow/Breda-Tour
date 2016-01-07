@@ -51,7 +51,7 @@
           <target state="translated" state-qualifier="mt-suggestion">Route information</target>
         </trans-unit>
         <trans-unit id="MapPagetxtKaart.Header" translate="yes" xml:space="preserve">
-          <source>Kaart</source>
+          <source>Map</source>
           <target state="translated">Map</target>
         </trans-unit>
         <trans-unit id="WpDetailPagetxtBeschrijving.Text" translate="yes" xml:space="preserve">
