@@ -6,7 +6,10 @@
     xmlns:c="using:Breda_Tour.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Breda_Tour.Data"
+    xmlns:con="using:Breda_Tour.RouteSelectScreen"
     mc:Ignorable="d">
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,6 +19,31 @@
         </Grid.RowDefinitions>
         <c:DefaultTopBar x:Uid="RouteSelectPagetxtSelectRoute" Header="Route Selecteren"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
-        
+        <RelativePanel Grid.Row="2" Margin="0,5">
+            <RelativePanel.Resources>
+                <con:Converter x:Key="BoolToVis"/>
+                <con:BoolToString x:Key="BoolToString"/>
+            </RelativePanel.Resources>
+            <ListView x:Name="Routes" ItemsSource="{x:Bind AllRoutes.Routes}" IsItemClickEnabled="True" ItemClick="Routes_ItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="data:Route">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="340">
+                                <Image Source="ms-appx:///Assets/Map_Icon.png" Width="35" Height="35"/>
+                                <TextBlock Text="{Binding Title}" FontSize="24" Margin="15,0,0,0"/>
+                                <ToggleButton x:Name="toggleButton" Background="Transparent" IsChecked="False" Width="40" Height="40" Margin="35,0,0,0">
+                                    <Image Source="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToString}}" Height="29" Margin="-10,0,-9,-1"/>
+                                </ToggleButton>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Width="340" Visibility="{Binding Path=IsChecked, ElementName=toggleButton,Converter={StaticResource BoolToVis}}">
+                                <Image Source="ms-appx:///Assets/Flag_Icon.png" Width="25" Height="25" Margin="45,0,0,0"/>
+                                <TextBlock Text="Breda" Foreground="DarkGray" FontSize="16" Margin="15,0,0,0"/>
+                            </StackPanel>
+                            <Line X1="0" X2="1080" Y1="5" Y2="5" Stroke="Gray" StrokeThickness="2"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </RelativePanel>
     </Grid>
 </Page>

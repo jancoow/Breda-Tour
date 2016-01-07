@@ -1,60 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Breda_Tour;
-
-using Breda_Tour.HelpScreen;
-using Breda_Tour.Data;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Windows.Globalization;
 using System.Threading.Tasks;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+using Breda_Tour.SplashScreen;
 
 namespace Breda_Tours.SettingsScreen
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class SettingsPage : Page
     {
-        public ObservableCollection<HelpItem> HelpItems
-        {
-            get { return (ObservableCollection<HelpItem>)GetValue(HelpItemProperty); }
-            set { SetValue(HelpItemProperty, value); }
-        }
-
-        public static readonly DependencyProperty HelpItemProperty =
-        DependencyProperty.Register("HelpItems", typeof(ObservableCollection<HelpItem>), typeof(SettingsPage), null);
-
-        public SettingsPage()
+       public SettingsPage()
         {
             this.InitializeComponent();
 
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
-            HelpPageDatabase helpDatabase = new HelpPageDatabase();
-            HelpItems = helpDatabase.GetCurrentHelpItems();
-            
-            DataContext = this;
         }
-
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            HelpItem helpitem = (HelpItem)e.ClickedItem;
-            MainPage.RootFrame.Navigate(typeof(HelpPage), helpitem);
-		}
 		
         private async void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -70,6 +30,10 @@ namespace Breda_Tours.SettingsScreen
                 await Task.Delay(TimeSpan.FromMilliseconds(50));
                 MainPage.RootFrame.Navigate(typeof(SettingsPage));
             }
+        }
+        private void listViewItemReset_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SplashPage));
         }
     }
 }

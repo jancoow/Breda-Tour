@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Breda_Tour.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,10 +24,24 @@ namespace Breda_Tour.RouteSelectScreen
     /// </summary>
     public sealed partial class RouteSelectPage : Page
     {
+        RouteDatabase AllRoutes;
+
         public RouteSelectPage()
         {
+            AllRoutes = new RouteDatabase();
             this.InitializeComponent();
             DefaultPivot.SetCheckedButton(CustomControls.DefaultPivotControl.Tab.RouteSelected);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
+
+        private void Routes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Route route = e.ClickedItem as Route;
+            MainPage.RootFrame.Navigate(typeof (RouteExample), route);
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Breda_Tour.HelpScreen
 
         private void Close_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            MainPage.RootFrame.Navigate(typeof(SettingsPage));
+            MainPage.RootFrame.Navigate(typeof(HelpScreenPage));
         }
 
         private void PageBack_Tapped(object sender, TappedRoutedEventArgs e)
