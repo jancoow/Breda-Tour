@@ -25,34 +25,6 @@
                         <TextBlock x:Uid="AppSettingstxtLanguageString" Margin="0,-1,0,0" FontSize="12"  Text="Nederlands"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
-                <Rectangle Margin="0,15,0,0" Fill="#99000000" Height="1" />
-                <TextBlock x:Uid="AppSettingsHelp" Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsHelp}"></TextBlock>
-                <ListView ItemsSource="{x:Bind HelpItems}" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" >
-                    <ListView.ItemTemplate >
-                        <DataTemplate  x:DataType="data:HelpItem">
-                            <ListBoxItem Padding="0" Background="Transparent" IsEnabled="False">
-                                    <Grid Height="50">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="50"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Ellipse Height="40" Width="40" Stroke="{StaticResource BredaToursMainColorBrush}" StrokeThickness="0.5"
-                                             Margin="5"
-                                             Name="FolderEllipse"/>
-                                    <SymbolIcon Symbol="Folder"
-                                                Foreground="{StaticResource BredaToursMainColorBrush}"
-                                                Margin="10"
-                                                >
-                                        <SymbolIcon.RenderTransform>
-                                            <RotateTransform Angle="270" CenterX="15" CenterY="15"/>
-                                        </SymbolIcon.RenderTransform>
-                                    </SymbolIcon>
-                                    <TextBlock RelativePanel.RightOf="FolderEllipse" Margin="10,14" Text="{x:Bind Title}" Grid.Column="1"/>
-                                </Grid>                                
-                            </ListBoxItem>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
             </StackPanel>
         </ScrollViewer>
     </Grid>

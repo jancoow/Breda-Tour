@@ -29,31 +29,13 @@ namespace Breda_Tours.SettingsScreen
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
-        public ObservableCollection<HelpItem> HelpItems
-        {
-            get { return (ObservableCollection<HelpItem>)GetValue(HelpItemProperty); }
-            set { SetValue(HelpItemProperty, value); }
-        }
-
-        public static readonly DependencyProperty HelpItemProperty =
-        DependencyProperty.Register("HelpItems", typeof(ObservableCollection<HelpItem>), typeof(SettingsPage), null);
-
-        public SettingsPage()
+     public SettingsPage()
         {
             this.InitializeComponent();
-
             DefaultPivot.SetCheckedButton(Breda_Tour.CustomControls.DefaultPivotControl.Tab.Settings);
-            HelpPageDatabase helpDatabase = new HelpPageDatabase();
-            HelpItems = helpDatabase.GetCurrentHelpItems();
-            
-            DataContext = this;
         }
 
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            HelpItem helpitem = (HelpItem)e.ClickedItem;
-            MainPage.RootFrame.Navigate(typeof(HelpPage), helpitem);
-		}
+
 		
         private void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
         {
