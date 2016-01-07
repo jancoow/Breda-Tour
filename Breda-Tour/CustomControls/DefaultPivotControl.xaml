@@ -11,6 +11,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <RadioButton 
             x:Name="RouteSelectRadioButton"
@@ -35,6 +36,14 @@
             Content="{StaticResource SymbolSettings}"
             Grid.Column="2"
             Checked="SettingsRadioButton_Checked"
+            Height="50"/>
+        <RadioButton 
+            HorizontalAlignment="Stretch"
+            x:Name="HelpRadioButton"
+            Style="{StaticResource MainNavigationButtonStyle}"
+            Content="{StaticResource SymbolHelp}"
+            Grid.Column="3"
+            Checked="HelpRadioButton_Checked"
             Height="50"/>
     </Grid>
     

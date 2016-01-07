@@ -29,6 +29,7 @@
             <x:String x:Key="SymbolClose"></x:String>
             <x:String x:Key="SymbolFolder"></x:String>
             <x:String x:Key="SymbolSettings"></x:String>
+            <x:String x:Key="SymbolHelp"></x:String>
             <x:String x:Key="SymbolGlobe"></x:String>
             <x:String x:Key="SymbolRouteSelect"></x:String>
             <x:String x:Key="SymbolStartRoute"></x:String>
