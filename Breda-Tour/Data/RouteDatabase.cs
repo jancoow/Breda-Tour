@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,17 @@ namespace Breda_Tour.Data
             {
                 Routes.Add(JsonConvert.DeserializeObject<Route>(route.ToString()));
             }
+        }
+
+        public ObservableCollection<Route> GetCurrentRoutes()
+        {
+            ObservableCollection<Route> routes = new ObservableCollection<Route>();
+            foreach (var route in Routes)
+            {
+                if (route.Language == App.Language)
+                    routes.Add(route);
+            }
+            return routes;
         }
     }
 }

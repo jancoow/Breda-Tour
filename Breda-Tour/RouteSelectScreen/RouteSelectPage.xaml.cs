@@ -1,6 +1,7 @@
 ﻿using Breda_Tour.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,7 @@ namespace Breda_Tour.RouteSelectScreen
     public sealed partial class RouteSelectPage : Page
     {
         RouteDatabase AllRoutes;
+        ObservableCollection<Route> CurrentRoutes;
 
         public RouteSelectPage()
         {
@@ -36,6 +38,7 @@ namespace Breda_Tour.RouteSelectScreen
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            CurrentRoutes = AllRoutes.GetCurrentRoutes();
         }
 
         private void Routes_ItemClick(object sender, ItemClickEventArgs e)

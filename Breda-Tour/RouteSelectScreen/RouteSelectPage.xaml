@@ -24,7 +24,7 @@
                 <con:Converter x:Key="BoolToVis"/>
                 <con:BoolToString x:Key="BoolToString"/>
             </RelativePanel.Resources>
-            <ListView x:Name="Routes" ItemsSource="{x:Bind AllRoutes.Routes}" IsItemClickEnabled="True" ItemClick="Routes_ItemClick">
+            <ListView x:Name="Routes" ItemsSource="{x:Bind CurrentRoutes}" IsItemClickEnabled="True" ItemClick="Routes_ItemClick">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:Route">
                         <StackPanel>
