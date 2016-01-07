@@ -17,7 +17,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <c:DefaultTopBar Header="Kaart" Grid.Row="0"/>
+        <c:DefaultTopBar x:Uid="MapPagetxtKaart" Header="Kaart" Grid.Row="0"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
 
         <Maps:MapControl x:Name="Map" Grid.Row="2" MapElementClick="Map_OnMapElementClick"        

@@ -141,6 +141,9 @@
   <data name="HelpScreenPagetxtHelpScreen.Header" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="MapPagetxtKaart.Header" xml:space="preserve">
+    <value>Kaart</value>
+  </data>
   <data name="RouteExamplePagetxtRouteInformatie.Text" xml:space="preserve">
     <value>Route informatie</value>
   </data>
@@ -149,5 +152,8 @@
   </data>
   <data name="RouteSelectPagetxtSelectRoute.Header" xml:space="preserve">
     <value>Route selecteren</value>
+  </data>
+  <data name="WpDetailPagetxtBeschrijving.Text" xml:space="preserve">
+    <value>Beschrijving</value>
   </data>
 </root>

@@ -50,6 +50,14 @@
           <source>Route informatie</source>
           <target state="translated" state-qualifier="mt-suggestion">Route information</target>
         </trans-unit>
+        <trans-unit id="MapPagetxtKaart.Header" translate="yes" xml:space="preserve">
+          <source>Kaart</source>
+          <target state="translated">Map</target>
+        </trans-unit>
+        <trans-unit id="WpDetailPagetxtBeschrijving.Text" translate="yes" xml:space="preserve">
+          <source>Beschrijving</source>
+          <target state="translated" state-qualifier="tm-suggestion">Description</target>
+        </trans-unit>
       </group>
     </body>
   </file>
