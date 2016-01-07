@@ -17,7 +17,7 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <c:DefaultTopBar Header="Route Selecteren"/>
+        <c:DefaultTopBar x:Uid="RouteSelectPagetxtSelectRoute" Header="Route Selecteren"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
         <RelativePanel Grid.Row="2" Margin="0,5">
             <RelativePanel.Resources>

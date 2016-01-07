@@ -6,7 +6,7 @@
     xmlns:c="using:Breda_Tour.CustomControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="using:Breda_Tour.HelpScreen"
+    xmlns:data="using:Breda_Tour.Data"
     mc:Ignorable="d">
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
@@ -14,46 +14,24 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*" ScrollViewer.VerticalScrollMode="Enabled"/>
         </Grid.RowDefinitions>
-        <c:DefaultTopBar Header="Instellingen"/>
+        <c:DefaultTopBar Header="Instellingen" x:Uid="AppSettingstxtSettings"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Style="{StaticResource SettingsHeaderStyle}" Foreground="White" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
-                <ListViewItem>
+            <StackPanel Orientation="Vertical" Background="White">
+                <TextBlock x:Uid="AppSettingsLanguageSettings"  Style="{StaticResource SettingsHeaderStyle}" Foreground="{StaticResource BredaToursMainColorBrush}" Text="{StaticResource AppSettingsLanguageSettings}"></TextBlock>
+                <ListViewItem Name="listViewItemSetupLanguage" Tapped="listViewItemSetupLanguage_Tapped">
                     <StackPanel Margin="8,0,0,0">
-                        <TextBlock FontSize="18" Text="Taal instellen" Foreground="White"></TextBlock>
-                        <TextBlock Margin="0,-1,0,0" FontSize="12" Foreground="White" Text="{StaticResource AppLanguageDutch}"></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtSetupLanguage" FontSize="18" Text="Taal instellen" ></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtLanguageString" Margin="0,-1,0,0" FontSize="12"  Text="Nederlands"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
-                <Rectangle Margin="0,15,0,0" Fill="#99FFFFFF" Height="1" />
-                <TextBlock Style="{StaticResource SettingsHeaderStyle}" Foreground="White" Text="{StaticResource AppSettingsHelp}"></TextBlock>
-                <ListView ItemsSource="{x:Bind HelpItems}" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:HelpItem">
-                            <ListBoxItem Padding="0" Background="Transparent" IsEnabled="False">
-                                <Grid Height="50">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Ellipse Height="40" Width="40" Stroke="White" StrokeThickness="0.5"
-                                         Margin="5"
-                                         Name="FolderEllipse"/>
-                                    <SymbolIcon Symbol="Folder"
-                                                
-                                            Foreground="White"
-                                            Margin="10"
-                                            >
-                                        <SymbolIcon.RenderTransform>
-                                            <RotateTransform Angle="270" CenterX="15" CenterY="15"/>
-                                        </SymbolIcon.RenderTransform>
-                                    </SymbolIcon>
-                                    <TextBlock RelativePanel.RightOf="FolderEllipse" Foreground="White" Margin="10,14" Text="{x:Bind Title}" Grid.Column="1"/>
-                                </Grid>
-                            </ListBoxItem>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <Rectangle Margin="0,15,0,15" Fill="#99000000" Height="1" />
+                <ListViewItem Name="listViewItemReset" Tapped="listViewItemReset_Tapped">
+                    <StackPanel Margin="8,0,0,0">
+                        <TextBlock x:Uid="AppSettingstxtReset" FontSize="18" Text="Applicatie resetten" Foreground="#ec0000" ></TextBlock>
+                        <TextBlock x:Uid="AppSettingstxtReset" Margin="0,-1,0,0" FontSize="12"  Text="Route afsluiten en applicatie naar basis instellingen resetten" Foreground="#ec0000"></TextBlock>
+                    </StackPanel>
+                </ListViewItem>
             </StackPanel>
         </ScrollViewer>
     </Grid>

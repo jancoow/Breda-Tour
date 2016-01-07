@@ -28,7 +28,8 @@ namespace Breda_Tour.CustomControls
         {
             RouteSelected,
             Map,
-            Settings
+            Settings,
+            Help
         }
 
         public void SetCheckedButton(Tab selected)
@@ -43,6 +44,9 @@ namespace Breda_Tour.CustomControls
                     break;
                 case Tab.Settings:
                     SettingsRadioButton.IsChecked = true;
+                    break;
+                case Tab.Help:
+                    HelpRadioButton.IsChecked = true;
                     break;
             }
         }
@@ -65,6 +69,11 @@ namespace Breda_Tour.CustomControls
         private void SettingsRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             MainPage.RootFrame.Navigate(typeof(Breda_Tours.SettingsScreen.SettingsPage));
+        }
+
+        private void HelpRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            MainPage.RootFrame.Navigate(typeof(HelpScreen.HelpScreenPage));
         }
     }
 }
