@@ -34,6 +34,7 @@ namespace Breda_Tours.SettingsScreen
         private void listViewItemReset_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(SplashPage));
+
         }
     }
 }
