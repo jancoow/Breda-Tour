@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Globalization;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -55,17 +56,19 @@ namespace Breda_Tours.SettingsScreen
             MainPage.RootFrame.Navigate(typeof(HelpPage), helpitem);
 		}
 		
-        private void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void listViewItemSetupLanguage_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (App.Language == App.Languages[0])
             {
                 App.Language = App.Languages[1];
-                Frame.Navigate(typeof(MainPage));
+                await Task.Delay(TimeSpan.FromMilliseconds(50));
+                MainPage.RootFrame.Navigate(typeof(SettingsPage));
             }
             else
             {
                 App.Language = App.Languages[0];
-                Frame.Navigate(typeof(MainPage));
+                await Task.Delay(TimeSpan.FromMilliseconds(50));
+                MainPage.RootFrame.Navigate(typeof(SettingsPage));
             }
         }
     }
