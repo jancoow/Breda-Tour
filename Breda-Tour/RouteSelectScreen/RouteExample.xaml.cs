@@ -42,16 +42,13 @@ namespace Breda_Tour.RouteSelectScreen
             MapService.ServiceToken =
                 "P4P2fAwXuk7ndsVIsaaV~uYjur55RgwmLsiwFwd72bQ~ApDRixf1L-0o_kMY8EtBBDm8xe7G2oz1k2-u0HQIATvSp-iiKr5KLNkYc1HF5D5e";
             InitializeComponent();
-            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (route == null)
-            {
-                route = e.Parameter as Route;
-                ShowRouteInfo();
-            }
+        
+            route = e.Parameter as Route;
+            ShowRouteInfo();
             //Setting the back button functionality
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             SystemNavigationManager.GetForCurrentView().BackRequested += BackRequested;
