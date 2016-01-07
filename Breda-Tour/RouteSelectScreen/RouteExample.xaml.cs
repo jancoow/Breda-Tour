@@ -109,7 +109,8 @@ namespace Breda_Tour.RouteSelectScreen
         {
             Waypoint wp = e.ClickedItem as Waypoint;
             wp.FromPreview = true;
-            MainPage.RootFrame.Navigate(typeof(WpDetailPage),wp);
+            Tuple<Waypoint, Route> t = new Tuple<Waypoint, Route>(wp, route);
+            MainPage.RootFrame.Navigate(typeof(WpDetailPage),t);
         }
     }
 }
