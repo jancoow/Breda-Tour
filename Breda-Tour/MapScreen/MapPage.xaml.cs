@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Shapes;
 using Breda_Tour.CustomControls;
 using System.Diagnostics;
 using Breda_Tour.Data;
+using Breda_Tour.RouteSelectScreen;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -54,9 +55,12 @@ namespace Breda_Tour.MapScreen
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             DefaultPivot.SetCheckedButton(DefaultPivotControl.Tab.Map);
-            if (this.route == null)
+            if (RouteExample.fromRouteExamp)
             {
+                RouteExample.fromRouteExamp = false;
                 route = e.Parameter as Route;
+                ShowWaypoints(route);
+                ShowRoute();
             }
         }
 
@@ -73,28 +77,30 @@ namespace Breda_Tour.MapScreen
                marker.Location = point;
            });
             await Map.TrySetViewAsync(point, 17);
-            ShowWaypoints(route);
-            ShowRoute(route);
         }
 
-        public async void ShowRoute(Route route)
+        public async void ShowRoute()
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                List<Geopoint> geopoints = new List<Geopoint>();
-                foreach (Waypoint wayPoint in route.Waypoints)
-                {
-                    geopoints.Add(wayPoint.Position);
-                }
-                MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
-                if (finder.Status == MapRouteFinderStatus.Success)
-                {
-                    MapRouteView routeView = new MapRouteView(finder.Route);
-                    routeView.RouteColor = Colors.Firebrick;
-                    routeView.OutlineColor = Colors.Black;
-                    Map.Routes.Add(routeView);
-                }
+                Map.Routes.Add(RouteExample.routeView);
             });
+            //await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            //{
+            //    List<Geopoint> geopoints = new List<Geopoint>();
+            //    foreach (Waypoint wayPoint in route.Waypoints)
+            //    {
+            //        geopoints.Add(wayPoint.Position);
+            //    }
+            //    MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
+            //    if (finder.Status == MapRouteFinderStatus.Success)
+            //    {
+            //        MapRouteView routeView = new MapRouteView(finder.Route);
+            //        routeView.RouteColor = Colors.Firebrick;
+            //        routeView.OutlineColor = Colors.Black;
+            //        Map.Routes.Add(routeView);
+            //    }
+            //});
         }
 
         public async void ShowWaypoints(Route route)
@@ -124,7 +130,7 @@ namespace Breda_Tour.MapScreen
                 {
                     if (x + 1 == int.Parse(Icon.Title))
                     {
-                        MainPage.RootFrame.Navigate(typeof (WpDetailPage), route.Waypoints.ElementAt(x));
+                        MainPage.RootFrame.Navigate(typeof(WpDetailPage), route.Waypoints.ElementAt(x));
                     }
                 }
             }

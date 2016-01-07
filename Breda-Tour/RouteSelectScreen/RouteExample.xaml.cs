@@ -34,6 +34,8 @@ namespace Breda_Tour.RouteSelectScreen
         public string WaypointsText { get; set; }
         public string RouteTijdText { get; set; }
         public string LoopafstandText { get; set; }
+        public static bool fromRouteExamp;
+        public static MapRouteView routeView;
 
         public RouteExample()
         {
@@ -63,6 +65,7 @@ namespace Breda_Tour.RouteSelectScreen
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            fromRouteExamp = true;
             MainPage.RootFrame.Navigate(typeof(MapPage), route);
         }
 
@@ -83,6 +86,10 @@ namespace Breda_Tour.RouteSelectScreen
             MapRouteFinderResult finder = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geopoints);
             if (finder.Status == MapRouteFinderStatus.Success)
             {
+                //Create route for mapPage
+                routeView = new MapRouteView(finder.Route);
+                routeView.RouteColor = Colors.Firebrick;
+                routeView.OutlineColor = Colors.Black;
                 //route duration
                 int tijd = ((int)finder.Route.EstimatedDuration.TotalMinutes);
                 RouteTijdText = $"Tijdsduur: {tijd} min";
