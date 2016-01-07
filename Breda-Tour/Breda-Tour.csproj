@@ -100,6 +100,37 @@
     </Content>
     <PRIResource Include="en-US\Resources.resw" />
     <None Include="project.json" />
+    <Content Include="Assets\Flag_Icon.png" />
+    <Content Include="Assets\Map.png" />
+    <Content Include="Assets\Map_Icon.png" />
+    <Content Include="Assets\UitklapIcon1.png" />
+    <Content Include="Assets\UitklapIcon2.png" />
+    <Content Include="Storage\Images\1.jpg" />
+    <Content Include="Storage\Images\10.jpg" />
+    <Content Include="Storage\Images\11.jpg" />
+    <Content Include="Storage\Images\12.jpg" />
+    <Content Include="Storage\Images\13.jpg" />
+    <Content Include="Storage\Images\14.jpg" />
+    <Content Include="Storage\Images\15.jpg" />
+    <Content Include="Storage\Images\16.jpg" />
+    <Content Include="Storage\Images\17.jpg" />
+    <Content Include="Storage\Images\18.jpg" />
+    <Content Include="Storage\Images\19.jpg" />
+    <Content Include="Storage\Images\2.jpg" />
+    <Content Include="Storage\Images\20.jpg" />
+    <Content Include="Storage\Images\21.jpg" />
+    <Content Include="Storage\Images\22.jpg" />
+    <Content Include="Storage\Images\23.jpg" />
+    <Content Include="Storage\Images\24.jpg" />
+    <Content Include="Storage\Images\25.jpg" />
+    <Content Include="Storage\Images\26.jpg" />
+    <Content Include="Storage\Images\3.jpg" />
+    <Content Include="Storage\Images\4.jpg" />
+    <Content Include="Storage\Images\5.jpg" />
+    <Content Include="Storage\Images\6.jpg" />
+    <Content Include="Storage\Images\7.jpg" />
+    <Content Include="Storage\Images\8.jpg" />
+    <Content Include="Storage\Images\9.jpg" />
     <Content Include="Storage\helpimages\taal_1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -118,6 +149,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Picture.cs" />
     <Compile Include="Data\HelpItem.cs" />
     <Compile Include="Data\HelpItemStep.cs" />
     <Compile Include="Data\HelpPageDatabase.cs" />
@@ -130,6 +162,7 @@
     <Compile Include="CustomControls\DefaultTopBar.xaml.cs">
       <DependentUpon>DefaultTopBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Gps.cs" />
     <Compile Include="HelpScreen\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
@@ -139,8 +172,22 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapScreen\ImageViewPage.xaml.cs">
+      <DependentUpon>ImageViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapScreen\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapScreen\WpDetailPage.xaml.cs">
+      <DependentUpon>WpDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteSelectScreen\BoolToString.cs" />
+    <Compile Include="RouteSelectScreen\Converter.cs" />
+    <Compile Include="RouteSelectScreen\RouteExample.xaml.cs">
+      <DependentUpon>RouteExample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RouteSelectScreen\RouteSelectPage.xaml.cs">
       <DependentUpon>RouteSelectPage.xaml</DependentUpon>
     </Compile>
@@ -159,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Ags_Logo.png" />
+    <Content Include="Assets\Marker.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -192,6 +240,22 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RouteSelectScreen\RouteExample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MapScreen\ImageViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MapScreen\MapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapScreen\WpDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RouteSelectScreen\RouteSelectPage.xaml">
       <SubType>Designer</SubType>
