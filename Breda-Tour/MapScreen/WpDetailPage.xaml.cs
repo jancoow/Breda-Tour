@@ -27,6 +27,7 @@ namespace Breda_Tour.MapScreen
     public sealed partial class WpDetailPage : Page
     {
         private Waypoint wp;
+        private Route route;
         public double Width { get; }
 
         public WpDetailPage()
@@ -37,7 +38,9 @@ namespace Breda_Tour.MapScreen
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            wp = e.Parameter as Waypoint;
+            Tuple<Waypoint, Route> t = (Tuple < Waypoint, Route>) e.Parameter;
+            wp = t.Item1;
+            route = t.Item2;
             this.DataContext = wp;
             if (wp.FromPreview)
             {
@@ -55,7 +58,7 @@ namespace Breda_Tour.MapScreen
         {
             e.Handled = true;
             SystemNavigationManager.GetForCurrentView().BackRequested -= RouteExample_BackRequested;
-            MainPage.RootFrame.Navigate(typeof(RouteExample));
+            MainPage.RootFrame.Navigate(typeof(RouteExample), route);
         }
 
         private void MainPage_BackRequested(object sender, BackRequestedEventArgs e)

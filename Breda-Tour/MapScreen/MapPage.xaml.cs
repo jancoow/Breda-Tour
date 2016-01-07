@@ -142,7 +142,7 @@ namespace Breda_Tour.MapScreen
                 {
                     if (x + 1 == int.Parse(Icon.Title))
                     {
-                        MainPage.RootFrame.Navigate(typeof(WpDetailPage), route.Waypoints.ElementAt(x));
+                        MainPage.RootFrame.Navigate(typeof(WpDetailPage), new Tuple < Waypoint, Route >(route.Waypoints.ElementAt(x), route));
                     }
                 }
             }
