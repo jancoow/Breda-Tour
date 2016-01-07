@@ -141,6 +141,12 @@
   <data name="HelpScreenPagetxtHelpScreen.Header" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="RouteExamplePagetxtRouteInformatie.Text" xml:space="preserve">
+    <value>Route informatie</value>
+  </data>
+  <data name="RouteExamplePagetxtRouteVoorbeeld.Header" xml:space="preserve">
+    <value>Route voorbeeld</value>
+  </data>
   <data name="RouteSelectPagetxtSelectRoute.Header" xml:space="preserve">
     <value>Route selecteren</value>
   </data>

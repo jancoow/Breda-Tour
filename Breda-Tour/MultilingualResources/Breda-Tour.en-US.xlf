@@ -42,6 +42,14 @@
           <source>Help</source>
           <target state="translated" state-qualifier="tm-suggestion">Help</target>
         </trans-unit>
+        <trans-unit id="RouteExamplePagetxtRouteVoorbeeld.Header" translate="yes" xml:space="preserve">
+          <source>Route voorbeeld</source>
+          <target state="translated" state-qualifier="mt-suggestion">Route example</target>
+        </trans-unit>
+        <trans-unit id="RouteExamplePagetxtRouteInformatie.Text" translate="yes" xml:space="preserve">
+          <source>Route informatie</source>
+          <target state="translated" state-qualifier="mt-suggestion">Route information</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -39,4 +39,10 @@
   <data name="HelpScreenPagetxtHelpScreen.Header" xml:space="preserve">
     <value>Help</value>
   </data>
+  <data name="RouteExamplePagetxtRouteVoorbeeld.Header" xml:space="preserve">
+    <value>Route example</value>
+  </data>
+  <data name="RouteExamplePagetxtRouteInformatie.Text" xml:space="preserve">
+    <value>Route information</value>
+  </data>
 </root>
