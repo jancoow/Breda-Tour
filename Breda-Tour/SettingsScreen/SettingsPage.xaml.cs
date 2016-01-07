@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Globalization;
+using Breda_Tour.SplashScreen;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -49,6 +50,10 @@ namespace Breda_Tours.SettingsScreen
                 App.Language = App.Languages[0];
                 Frame.Navigate(typeof(MainPage));
             }
+        }
+        private void listViewItemReset_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SplashPage));
         }
     }
 }
