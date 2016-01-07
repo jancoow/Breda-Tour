@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:Breda_Tour.Data"
     xmlns:con="using:Breda_Tour.RouteSelectScreen"
-    mc:Ignorable="d">
+    mc:Ignorable="d" GotFocus="Page_GotFocus">
 
 
     <Grid>
