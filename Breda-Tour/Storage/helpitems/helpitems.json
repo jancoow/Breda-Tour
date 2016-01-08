@@ -1,46 +1,125 @@
 {
   "HelpItems": [
+    {
+      "Language": "nl-NL",
+      "Title": "Taal aanpassen",
+      "Steps": [
         {
+          "Title": "Ga naar het instellingen menu",
+          "Description": "Druk hiervoor op het 3e icoontje bovenin het menu. ",
+          "ImageSource": "screen_2.png"
+        },
+        {
+          "Title": "Druk op taal instellen / set language",
+          "Description": "Eerste optie in het menu. De taal zal wisselen van Nederlands naar Engels of andersom.",
+          "ImageSource": "screen_4.png"
+        }
+      ]
+    },
+    {
+      "Language": "nl-NL",
+      "Title": "Punt bekijken",
+      "Steps": [
+        {
+          "Title": "Start een route",
+          "Description": "Start de gewenste route op. Een beschrijving hiervan vindt u in het helpmenu.",
+          "ImageSource": "screen_7.png"
+        },
+        {
+          "Title": "Druk op een locatie.",
+          "Description": "Als u op een locatie drukt zal u de beschikbare beschrijving zien van dit punt.",
+          "ImageSource": "screen_8.png"
+        }
+      ]
+    },
+    {
             "Language" : "nl-NL",
-            "Title" : "Taal selecteren",
+            "Title" : "Route Selecteren",
             "Steps" : [
                 {
-                    "Title":"Ga naar het instellingen menu",
-                    "Description":"Druk hiervoor op het 3e icoontje bovenin het menu. ",
-                    "ImageSource" :"taal_1.jpg"
+                    "Title":"Ga naar het route selectie menu",
+                    "Description":"Druk hiervoor op het 1e icoontje bovenin het menu. ",
+                    "ImageSource" :"screen_2.png"
                 },
                 {
-                    "Title":"Druk op taal instellen / set language",
-                    "Description":"Eerste optie in het menu.",
-                    "ImageSource" :"taal_2.jpg"
+                    "Title":"Druk op de gewenste route",
+                    "Description":"Selecteer een route om naar het routevoorbeeld te gaan.",
+                    "ImageSource" :"screen_6.png"
                 },
                 {
-                    "Title":"Selecteer de gewenste taal",
-                    "Description":"Hier kunt u kiezen uit de beschikbare talen van deze applicatie.",
-                    "ImageSource" :"taal_3.jpg"
+                    "Title":"Route starten",
+                    "Description":"Druk op start om aan de gewenste route te beginnen.",
+                    "ImageSource" :"screen_7.png"
+                },
+                {
+                    "Title":"Route starten",
+                    "Description":"De route zal nu starten.",
+                    "ImageSource" :"screen_10.png"
                 }
             ] 
         },
-        {
-			      "Language" : "en-US",
-            "Title" : "Select Language",
+    {
+            "Language" : "en-US",
+            "Title" : "Select tour",
             "Steps" : [
                 {
-                    "Title":"Go to the settings menu",
-                    "Description":"To do that, press on the third icon in the top menu.",
-                    "ImageSource" :"taal_1.jpg"
+                    "Title":"Navigate to the tour selection menu",
+                    "Description":"Push the first button in the menu bar. ",
+                    "ImageSource" :"screen_2.png"
                 },
                 {
-                    "Title":"Press on taal instellen / set language",
-                    "Description":"First option in the menu",
-                    "ImageSource" :"taal_2.jpg"
+                    "Title":"Select the route you want",
+                    "Description":"Select a tour to navigate to the preview screen.",
+                    "ImageSource" :"screen_6.png"
                 },
                 {
-                    "Title":"Select the preferred language",
-                    "Description":"Here you can choose between the available languages of the application.",
-                    "ImageSource" :"taal_3.jpg"
+                    "Title":"Start route",
+                    "Description":"Push start to begin with the tour.",
+                    "ImageSource" :"screen_7.png"
+                },
+                {
+                    "Title":"Start route",
+                    "Description":"The tour will now start.",
+                    "ImageSource" :"screen_10.png"
                 }
-            ]
-		}
+            ] 
+        },
+    {
+      "Language": "en-US",
+      "Title": "Select Language",
+      "Steps": [
+        {
+          "Title": "Go to the settings menu",
+          "Description": "To do that, press on the third icon in the top menu.",
+          "ImageSource": "screen_2.png"
+        },
+        {
+          "Title": "Press on taal instellen / set language",
+          "Description": "First option in the menu. The language will switch to English or Dutch.",
+          "ImageSource": "screen_4.png"
+        },
+        {
+          "Title": "Select the preferred language",
+          "Description": "Here you can choose between the available languages of the application.",
+          "ImageSource": "taal_3.jpg"
+        }
+      ]
+    },
+    {
+      "Language": "en-US",
+      "Title": "View waypoint",
+      "Steps": [
+        {
+          "Title": "Start a tour",
+          "Description": "Start a tour. You can find a detailed description in the help menu.",
+          "ImageSource": "screen_7.png"
+        },
+        {
+          "Title": "Select a waypoint.",
+          "Description": "Select a waypoint on the screen. If you select the waypoint you will see the available description of the location.",
+          "ImageSource": "screen_8.png"
+        }
+      ]
+    }
     ]
 }
