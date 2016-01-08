@@ -14,11 +14,11 @@ namespace Breda_Tour.Data
 {
     public class Gps
     {
-        private ExtendedExecutionSession session;
         private MapPage mapPage;
         private Geolocator geolocator;
 
         private Geoposition _position;
+
         public Geoposition Position
         {
             get { return _position; }
@@ -28,6 +28,7 @@ namespace Breda_Tour.Data
 
 
         private PositionStatus _status;
+
         public PositionStatus Status
         {
             get { return _status; }
@@ -52,7 +53,6 @@ namespace Breda_Tour.Data
                     geolocator.PositionChanged += OnPositionChanged;
                     // Get position
                     _position = await geolocator.GetGeopositionAsync();
-                    StartLocationExtensionSession();
                     break;
                 case GeolocationAccessStatus.Denied:
                     _status = PositionStatus.NotAvailable;
@@ -93,28 +93,6 @@ namespace Breda_Tour.Data
             {
                 _position = await geolocator.GetGeopositionAsync();
                 mapPage.ShowLocaton(_position.Coordinate.Point);
-            }
-        }
-
-        private async void StartLocationExtensionSession()
-        {
-            session = new ExtendedExecutionSession();
-            session.Description = "Location Tracker";
-            session.Reason = ExtendedExecutionReason.LocationTracking;
-            session.Revoked += ExtendedExecutionSession_Revoked;
-            var result = await session.RequestExtensionAsync();
-            if (result == ExtendedExecutionResult.Denied)
-            {
-                Debug.Write("Denied!!!!");
-            }
-        }
-
-        private void ExtendedExecutionSession_Revoked(object sender, ExtendedExecutionRevokedEventArgs args)
-        {
-            if (session != null)
-            {
-                session.Dispose();
-                session = null;
             }
         }
     }
