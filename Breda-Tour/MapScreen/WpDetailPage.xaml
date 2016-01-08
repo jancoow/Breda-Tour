@@ -9,7 +9,7 @@
     xmlns:data="using:Breda_Tour.Data"
     mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
         <c:DefaultTopBar x:Name="NameBar" Grid.Row="0" Header="{x:Bind wp.Title}"/>
-        <ListView Grid.Row="1" ItemsSource="{x:Bind wp.Pictures}"
+        <ListView Background="White" Grid.Row="1" ItemsSource="{x:Bind wp.Pictures}"
                   ScrollViewer.HorizontalScrollMode="Enabled"
                     ScrollViewer.IsHorizontalRailEnabled="True"
                     ScrollViewer.VerticalScrollMode="Disabled" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
@@ -40,11 +40,11 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <RelativePanel Grid.Row="2">
+        <RelativePanel Background="White" Grid.Row="2">
             <TextBlock x:Uid="WpDetailPagetxtBeschrijving" Text="Beschrijving" FontSize="20" Margin="15,15,0,15" />
             <Line X1="0" X2="{x:Bind Width, Mode=OneTime}" Y1="50" Y2="50" Stroke="Gray" StrokeThickness="2" />
         </RelativePanel>
-        <RelativePanel Grid.Row="3">
+        <RelativePanel Background="White" Grid.Row="3">
             <ScrollViewer Margin="15,0,0,0" VerticalScrollBarVisibility="Auto" >
                 <TextBlock HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" TextWrapping="Wrap" Text="{x:Bind wp.Description}"/>
             </ScrollViewer>
