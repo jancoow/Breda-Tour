@@ -51,4 +51,10 @@
   <data name="WpDetailPagetxtBeschrijving.Text" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="AppSettingstxtReset.Text" xml:space="preserve">
+    <value>Reset route and application to defaults</value>
+  </data>
+  <data name="AppSettingstxtResetHeader.Text" xml:space="preserve">
+    <value>Reset Application</value>
+  </data>
 </root>
