@@ -112,7 +112,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate>
-                            <RelativePanel>
+                            <RelativePanel HorizontalAlignment="Stretch">
                                 <VisualStateManager.VisualStateGroups>
                                     <!--<VisualStateGroup x:Name="CommonStates">
                                         <VisualState x:Name="Normal">
