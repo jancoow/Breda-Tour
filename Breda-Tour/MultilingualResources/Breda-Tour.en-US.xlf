@@ -58,6 +58,14 @@
           <source>Beschrijving</source>
           <target state="translated" state-qualifier="tm-suggestion">Description</target>
         </trans-unit>
+        <trans-unit id="AppSettingstxtReset.Text" translate="yes" xml:space="preserve">
+          <source>Route afsluiten en applicatie naar basis instellingen resetten</source>
+          <target state="translated">Reset route and application to defaults</target>
+        </trans-unit>
+        <trans-unit id="AppSettingstxtResetHeader.Text" translate="yes" xml:space="preserve">
+          <source>Applicatie resetten</source>
+          <target state="translated">Reset Application</target>
+        </trans-unit>
       </group>
     </body>
   </file>

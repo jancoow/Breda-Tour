@@ -126,6 +126,12 @@
   <data name="AppSettingstxtLanguageString.Text" xml:space="preserve">
     <value>Nederlands</value>
   </data>
+  <data name="AppSettingstxtReset.Text" xml:space="preserve">
+    <value>Route afsluiten en applicatie naar basis instellingen resetten</value>
+  </data>
+  <data name="AppSettingstxtResetHeader.Text" xml:space="preserve">
+    <value>Applicatie resetten</value>
+  </data>
   <data name="AppSettingstxtSettings.Header" xml:space="preserve">
     <value>Instellingen</value>
   </data>
