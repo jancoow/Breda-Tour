@@ -43,12 +43,10 @@ namespace Breda_Tour
                 if (value == Languages[0])
                 {
                     ApplicationLanguages.PrimaryLanguageOverride = "nl-NL";
-                    Debug.WriteLine("mijn taal is:" + ApplicationLanguages.ManifestLanguages.First());
                 }
                 else if (value == Languages[1])
                 {
                     ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-                    Debug.WriteLine("my language is:" + ApplicationLanguages.ManifestLanguages.First());
                 }
             }
         }
