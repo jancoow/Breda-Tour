@@ -55,7 +55,7 @@ namespace Breda_Tour.Data
                     _status = PositionStatus.NotAvailable;
                     geolocator = null;
                     bool result = await Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-location"));
-                    Refresh();
+                    Start();
                     break;
                 case GeolocationAccessStatus.Unspecified:
                     _status = PositionStatus.NotAvailable;
