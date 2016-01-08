@@ -45,6 +45,10 @@
                 <GradientStop Color="#185a9d" Offset="0"/>
                 <GradientStop Color="#43cea2" Offset="1"/>
             </LinearGradientBrush>
+            <LinearGradientBrush x:Key="BredaToursVVVBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#185a9d" Offset="0"/>
+                <GradientStop Color="#18189d" Offset="1"/>
+            </LinearGradientBrush>
             <LinearGradientBrush x:Key="BredaTourDropShadowBrush" StartPoint="0,0" EndPoint="0,1" SpreadMethod="Reflect">
                 <GradientStop Color="#44000000" Offset="0"/>
                 <GradientStop Color="#FFFFFFFF" Offset="0.5"/>

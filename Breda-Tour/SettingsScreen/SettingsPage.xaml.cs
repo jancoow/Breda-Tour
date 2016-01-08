@@ -3,6 +3,8 @@ using Breda_Tour;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using System.Threading.Tasks;
+using Windows.System;
+using Windows.UI.Xaml;
 using Breda_Tour.SplashScreen;
 
 namespace Breda_Tours.SettingsScreen
@@ -34,6 +36,12 @@ namespace Breda_Tours.SettingsScreen
         private void listViewItemReset_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(SplashPage));
+
+        }
+
+        private async void VVVButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("http://www.vvvbreda.nl//"));
 
         }
     }

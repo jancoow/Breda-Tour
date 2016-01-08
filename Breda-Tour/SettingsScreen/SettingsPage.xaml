@@ -32,6 +32,8 @@
                         <TextBlock x:Uid="AppSettingstxtReset" Margin="0,-1,0,0" FontSize="12"  Text="Route afsluiten en applicatie naar basis instellingen resetten" Foreground="#ec0000"></TextBlock>
                     </StackPanel>
                 </ListViewItem>
+                <Button Margin="15" Background="{StaticResource BredaToursVVVBrush}" Foreground="White" FontWeight="Bold" HorizontalAlignment="Stretch"
+                        Height="40" x:Name="VVVButton" Click="VVVButton_OnClick">VVV Website</Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
