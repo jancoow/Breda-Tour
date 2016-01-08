@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.UI.Core;
-using Windows.UI.Xaml.Controls;
 using Windows.Devices.Geolocation;
 
 namespace Breda_Tour.Data

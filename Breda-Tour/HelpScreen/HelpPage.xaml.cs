@@ -1,5 +1,4 @@
 ﻿using Breda_Tour.Data;
-using Breda_Tours.SettingsScreen;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;

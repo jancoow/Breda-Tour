@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Windows.ApplicationModel.ExtendedExecution;
-using Windows.Devices.AllJoyn;
 using Windows.Devices.Geolocation;
-using Windows.Devices.Geolocation.Geofencing;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Media.Animation;
 using Breda_Tour.MapScreen;
 
 namespace Breda_Tour.Data
