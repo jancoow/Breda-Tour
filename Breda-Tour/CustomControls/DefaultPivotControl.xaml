@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <Grid Background="#22000000" Height="52">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -20,15 +20,16 @@
             Content="{StaticResource SymbolRouteSelect}"
             Checked="RouteSelectRadioButton_Checked"
             Height="50"
-            />
+            MinWidth="0" />
         <RadioButton 
-             HorizontalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
             x:Name="MapRadioButton"
             Style="{StaticResource MainNavigationButtonStyle}"
             Content="{StaticResource SymbolGlobe}" 
             Grid.Column="1"
             Checked="MapRadioButton_Checked"
-            Height="50"/>
+            Height="50"
+            MinWidth="0" />
         <RadioButton 
             HorizontalAlignment="Stretch"
             x:Name="SettingsRadioButton"
@@ -36,7 +37,8 @@
             Content="{StaticResource SymbolSettings}"
             Grid.Column="2"
             Checked="SettingsRadioButton_Checked"
-            Height="50"/>
+            Height="50"
+            MinWidth="0" />
         <RadioButton 
             HorizontalAlignment="Stretch"
             x:Name="HelpRadioButton"
@@ -44,7 +46,8 @@
             Content="{StaticResource SymbolHelp}"
             Grid.Column="3"
             Checked="HelpRadioButton_Checked"
-            Height="50"/>
+            Height="50" 
+            MinWidth="0" />
     </Grid>
-    
+
 </UserControl>
