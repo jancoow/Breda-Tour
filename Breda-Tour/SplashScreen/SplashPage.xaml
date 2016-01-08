@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="Breda_Tour.SplashScreen.SplashPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Breda_Tour.SplashScreen"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource BredaToursSplashScreenBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Logo-->
+        <RelativePanel HorizontalAlignment="Center">
+            <Ellipse Name="BackgroundEllipseLogo"
+                     RelativePanel.AlignBottomWith="LogoImage"
+                     RelativePanel.AlignTopWith="LogoImage"
+                     RelativePanel.AlignLeftWith="LogoImage"
+                     RelativePanel.AlignRightWith="LogoImage"
+                     Margin="25"
+                     Fill="#44FFFFFF"
+                     Stroke="White" StrokeThickness="1"/>
+            <Image Name="LogoImage"
+                   Source="/Assets/Ags_Logo.png" 
+                   MinHeight="40"
+                   MaxHeight="125"
+                   RelativePanel.AlignBottomWithPanel="True"
+                   Margin="45"/>
+        </RelativePanel>
+        <!--Logo-->
+        <!--App Name-->
+        <RelativePanel  Grid.Row="1">
+            <StackPanel Name="TitleStackPanel" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
+                <TextBlock Foreground="White" FontSize="36" FontWeight="Light" Text="{StaticResource AppTitleThinPart}"/>
+                <TextBlock Foreground="White" FontSize="36" FontWeight="Normal" Text="{StaticResource AppTitleBoldPart}" Margin="5,0,0,0"/>
+            </StackPanel>
+            <Rectangle Fill="White" Grid.Row="1" RelativePanel.Below="TitleStackPanel" Margin="2,0,1,0" RelativePanel.AlignLeftWith="TitleStackPanel" RelativePanel.AlignRightWith="TitleStackPanel" Height="1"></Rectangle>
+        </RelativePanel>
+        <!--App Name-->
+        <!--Language selection-->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <Button Style="{StaticResource SplashScreenLanguageButtonStyle}"
+                    Content="{StaticResource AppLanguageDutch}"
+                    Margin="0,15,0,0"
+                    Click="Button_Dutch_Click"/>
+            <Button Style="{StaticResource SplashScreenLanguageButtonStyle}"
+                    Content="{StaticResource AppLanguageEnglish}"
+                    Margin="0,10,0,0"
+                    Click="Button_English_Click"/>
+        </StackPanel>
+
+        <!--Language selection-->
+
+    </Grid>
+</Page>
