@@ -14,13 +14,26 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <c:DefaultTopBar x:Uid="MapPagetxtKaart" Header="Kaart" Grid.Row="0"/>
         <c:DefaultPivotControl x:Name="DefaultPivot" Grid.Row="1"/>
-
-        <Maps:MapControl x:Name="Map" Grid.Row="2" MapElementClick="Map_OnMapElementClick"        
+        <StackPanel x:Name="ButtonPanel" Background="White" Grid.Row="2" Visibility="Collapsed" >
+            <StackPanel>
+                <TextBlock FontSize="14" Margin="120,3,0,0">End current route?</TextBlock>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <Button x:Name="YesButton" Click="YesButton_OnClick" Margin="40,10,0,10" Padding="30,10,30,10">
+                    <TextBlock>Yes</TextBlock>
+                </Button>
+                <Button x:Name="NoButton" Click="NoButton_OnClick" Margin="100,10,0,10" Padding="30,10,30,10">
+                    <TextBlock>No</TextBlock>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <Maps:MapControl x:Name="Map" Grid.Row="3" MapElementClick="Map_OnMapElementClick"        
        ZoomInteractionMode="GestureAndControl"
        TiltInteractionMode="GestureAndControl"
        RotateInteractionMode="GestureAndControl"
