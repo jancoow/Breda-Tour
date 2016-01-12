@@ -103,6 +103,7 @@
     <Content Include="Assets\Flag_Icon.png" />
     <Content Include="Assets\Map.png" />
     <Content Include="Assets\Map_Icon.png" />
+    <Content Include="Assets\poi.png" />
     <Content Include="Assets\UitklapIcon1.png" />
     <Content Include="Assets\UitklapIcon2.png" />
     <Content Include="Storage\helpimages\screen_1.png" />

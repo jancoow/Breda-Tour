@@ -11,6 +11,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml.Controls.Maps;
 using Breda_Tour.CustomControls;
 using Windows.Devices.Geolocation.Geofencing;
+using Windows.UI.Xaml;
 using Breda_Tour.Data;
 using Breda_Tour.RouteSelectScreen;
 
@@ -83,12 +84,21 @@ namespace Breda_Tour.MapScreen
                 {
                     //Waypoints handeling
                     Waypoint wayp = route.Waypoints.ElementAt(x);
-                    MapIcon wp = new MapIcon { Location = wayp.Position, Title = (x + 1).ToString() };
+                    MapIcon wp = new MapIcon { Location = wayp.Position, Title = (x + 1).ToString(), Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/poi.png")) };
                     Map.MapElements.Add(wp);
                     //Geofencing handeling
                     string name = (x + 1).ToString();
-                    GeofenceMonitor.Current.Geofences.Add(new Geofence(name, new Geocircle(wayp.Position.Position, 25),
+                    if (name == "45")
+                    {
+                        GeofenceMonitor.Current.Geofences.Add(new Geofence(name,
+                            new Geocircle(wayp.Position.Position, 25),
+                            MonitoredGeofenceStates.Entered, false, TimeSpan.FromSeconds(3)));
+                    }
+                    else
+                    {
+                        GeofenceMonitor.Current.Geofences.Add(new Geofence(name, new Geocircle(wayp.Position.Position, 25),
                         MonitoredGeofenceStates.Entered, true, TimeSpan.FromSeconds(3)));
+                    }
                 }
             });
         }
@@ -120,7 +130,7 @@ namespace Breda_Tour.MapScreen
             });
         }
 
-        private void OnGeofenceStateChange(GeofenceMonitor sender, object args)
+        private async void OnGeofenceStateChange(GeofenceMonitor sender, object args)
         {
             var reports = sender.ReadReports();
             foreach (GeofenceStateChangeReport report in reports)
@@ -143,8 +153,29 @@ namespace Breda_Tour.MapScreen
                             new Notification("Waypoint", waypoint.Title);
                         }
                     }
+                    if (geofence.Id == "45")
+                    {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            ButtonPanel.Visibility = Visibility.Visible;
+                        });
+                    }
                 }
             }
+        }
+
+        private void YesButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ButtonPanel.Visibility = Visibility.Collapsed;
+            MainPage.RootFrame.Navigate(typeof (RouteSelectPage));
+            Map.MapElements.Clear();
+            Map.Routes.Clear();
+            gps.History.Clear();
+        }
+
+        private void NoButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            ButtonPanel.Visibility = Visibility.Collapsed;
         }
     }
 }
